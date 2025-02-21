@@ -1,0 +1,17 @@
+{
+	"name": "Production Project",
+	"version": "0.1.0",
+	"author": "Bhabishwor Gurung",
+	"author_email": "bhabishworgrg@gmail.com",
+	"repository": "https://github.com/Bhabishworgrg/production-project",
+	"python": {
+		"version": "3.10.16",
+		"dependencies": {
+			"opencv-python": "4.11.0.86",
+			"numpy": "2.2.3"
+		}
+	},
+	"godot": {
+		"version": "4.3"
+	}
+}

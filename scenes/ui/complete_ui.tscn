@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://b6hsg5dhwh6nx"]
+
+[node name="CompleteUI" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1151.0
+offset_bottom = 650.0

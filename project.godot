@@ -18,6 +18,10 @@ config/features=PackedStringArray("4.3", "Forward Plus")
 
 project/assembly_name="production-project"
 
+[global_group]
+
+player=""
+
 [input]
 
 jump={

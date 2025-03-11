@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://d3cnn26ga5mls"]
+[gd_scene load_steps=4 format=3 uid="uid://d3cnn26ga5mls"]
 
 [ext_resource type="PackedScene" uid="uid://baao4rnkgcs1i" path="res://scenes/player.tscn" id="1_a1tfp"]
 [ext_resource type="PackedScene" uid="uid://c457unem78en7" path="res://scenes/platform.tscn" id="2_v7wes"]
+[ext_resource type="PackedScene" uid="uid://dg0p1ryorij3b" path="res://scenes/area_completed.tscn" id="4_q063s"]
 
 [node name="Game" type="Node2D"]
 
@@ -10,3 +11,6 @@ position = Vector2(130, 223)
 
 [node name="Platform" parent="." instance=ExtResource("2_v7wes")]
 position = Vector2(585, 634)
+
+[node name="AreaCompleted" parent="." instance=ExtResource("4_q063s")]
+position = Vector2(1122, 335)

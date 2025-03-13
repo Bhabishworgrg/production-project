@@ -9,6 +9,15 @@ public partial class StateWalk : State
 
 	public override void Update(float delta)
 	{
+		if (Input.GetAxis("left", "right") == 0)
+		{
+			_stateMachine.EmitSignal("state_changed", "StateIdle");
+		}
+
+		if (Input.IsActionJustPressed("jump"))
+		{
+			_stateMachine.EmitSignal("state_changed", "StateJump");
+		}
 	}
 
 	public override void PhysicsUpdate(float delta)

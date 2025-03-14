@@ -1,7 +1,13 @@
-[gd_scene load_steps=4 format=3 uid="uid://baao4rnkgcs1i"]
+[gd_scene load_steps=10 format=3 uid="uid://baao4rnkgcs1i"]
 
 [ext_resource type="Script" path="res://scripts/player/player.gd" id="1_duirn"]
 [ext_resource type="Texture2D" uid="uid://benh0ow1pb0ff" path="res://assets/icon.svg" id="2_no4fe"]
+[ext_resource type="PackedScene" uid="uid://di577ckd2iddj" path="res://scenes/state_machine.tscn" id="3_ag3f3"]
+[ext_resource type="PackedScene" uid="uid://fuxfgex5ujp1" path="res://scenes/state_idle.tscn" id="4_1rt4c"]
+[ext_resource type="PackedScene" uid="uid://bfmpkgrip5r54" path="res://scenes/state_fall.tscn" id="5_e0jkm"]
+[ext_resource type="PackedScene" uid="uid://d26mvdsx2tn41" path="res://scenes/state_jump.tscn" id="6_i0w5v"]
+[ext_resource type="PackedScene" uid="uid://dnut3y3ikm3rw" path="res://scenes/state_land.tscn" id="7_gluaf"]
+[ext_resource type="PackedScene" uid="uid://dc8e68547kn21" path="res://scenes/state_walk.tscn" id="8_mucvw"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_l0kkw"]
 size = Vector2(121, 119)
@@ -15,3 +21,16 @@ shape = SubResource("RectangleShape2D_l0kkw")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("2_no4fe")
+
+[node name="StateMachine" parent="." node_paths=PackedStringArray("_state") instance=ExtResource("3_ag3f3")]
+_state = NodePath("StateIdle")
+
+[node name="StateIdle" parent="StateMachine" instance=ExtResource("4_1rt4c")]
+
+[node name="StateWalk" parent="StateMachine" instance=ExtResource("8_mucvw")]
+
+[node name="StateJump" parent="StateMachine" instance=ExtResource("6_i0w5v")]
+
+[node name="StateFall" parent="StateMachine" instance=ExtResource("5_e0jkm")]
+
+[node name="StateLand" parent="StateMachine" instance=ExtResource("7_gluaf")]

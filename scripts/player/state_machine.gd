@@ -9,7 +9,6 @@ var _states: Dictionary
 
 
 func _ready() -> void:
-	_state = $State
 	for child in get_children():
 		_states[child.get_name()] = child
 	_state.Enter()

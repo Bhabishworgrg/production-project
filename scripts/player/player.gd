@@ -6,6 +6,7 @@ const SPEED: float = 300.0
 @export var JUMP_VELOCITY: float = -400.0
 
 
+@warning_ignore("unused_parameter")
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
 	#if not is_on_floor():

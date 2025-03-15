@@ -11,12 +11,16 @@ config_version=5
 [application]
 
 config/name="production-project"
-run/main_scene="res://scenes/level.tscn"
+run/main_scene="res://scenes/game.tscn"
 config/features=PackedStringArray("4.3", "C#", "Forward Plus")
 
 [dotnet]
 
 project/assembly_name="production-project"
+
+[global_group]
+
+player=""
 
 [input]
 

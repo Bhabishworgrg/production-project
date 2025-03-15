@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://b6hsg5dhwh6nx"]
+
+[node name="CompleteUI" type="CanvasLayer"]
+
+[node name="Label" type="Label" parent="."]
+offset_left = 470.0
+offset_top = 316.0
+offset_right = 553.0
+offset_bottom = 339.0
+text = "COMPLETE"

@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://dg0p1ryorij3b"]
+
+[ext_resource type="Script" path="res://src/game/area_completed.gd" id="1_vr7tv"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_l1rb4"]
+size = Vector2(44, 836)
+
+[node name="AreaCompleted" type="Area2D"]
+script = ExtResource("1_vr7tv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_l1rb4")
+
+[connection signal="body_entered" from="." to="." method="_on_player_entered"]

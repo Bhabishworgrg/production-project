@@ -7,11 +7,7 @@ public partial class StateLand : State
 	{
 		_character = GetOwner<CharacterBody2D>();
 		_stateMachine = GetParent<Node>();
-	}
 
-
-	public override void Update(float delta)
-	{
 		if (Input.GetAxis("left", "right") == 0)
 		{
 			_stateMachine.EmitSignal("state_changed", "StateIdle");
@@ -20,6 +16,11 @@ public partial class StateLand : State
 		{
 			_stateMachine.EmitSignal("state_changed", "StateWalk");
 		}
+	}
+
+
+	public override void Update(float delta)
+	{
 	}
 
 

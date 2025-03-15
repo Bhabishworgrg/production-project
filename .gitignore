@@ -1,3 +1,5 @@
 .godot/
 *.import
 __pycache__/
+*.csproj
+*.sln

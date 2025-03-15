@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://bfmpkgrip5r54"]
 
-[ext_resource type="Script" path="res://scripts/player/StateFall.cs" id="1_vddw1"]
+[ext_resource type="Script" path="res://scripts/states/StateFall.cs" id="1_vddw1"]
 
 [node name="StateFall" type="Node"]
 script = ExtResource("1_vddw1")

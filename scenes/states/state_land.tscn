@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://dnut3y3ikm3rw"]
 
-[ext_resource type="Script" path="res://scripts/player/StateLand.cs" id="1_jkn68"]
+[ext_resource type="Script" path="res://scripts/states/StateLand.cs" id="1_jkn68"]
 
 [node name="StateLand" type="Node"]
 script = ExtResource("1_jkn68")

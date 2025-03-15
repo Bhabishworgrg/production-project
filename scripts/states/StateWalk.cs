@@ -12,6 +12,11 @@ public partial class StateWalk : State
 		_stateMachine = GetParent<Node>();
 
 		SPEED = (float)_character.Get("SPEED");
+
+		if (_character == null || _stateMachine == null || SPEED == 0)
+		{
+			GD.PrintRich("[color=red]ERROR[/color]: Walk state not properly initialized.");
+		}
 	}
 
 
@@ -19,13 +24,23 @@ public partial class StateWalk : State
 	{
 		if (Input.IsActionJustPressed("jump"))
 		{
-			_stateMachine.EmitSignal("state_changed", "StateJump");
+			Error error = _stateMachine.EmitSignal("state_changed", "StateJump");
+
+			if (error == Error.Unavailable)
+			{
+				GD.PrintRich("[color=red]ERROR[/color]: ", error);
+			}
 		}
 	
 		float direction = Input.GetAxis("left", "right");
 		if (direction == 0)
 		{
-			_stateMachine.EmitSignal("state_changed", "StateIdle");
+			Error error = _stateMachine.EmitSignal("state_changed", "StateIdle");
+
+			if (error == Error.Unavailable)
+			{
+				GD.PrintRich("[color=red]ERROR[/color]: ", error);
+			}
 		}
 		else
 		{
@@ -38,7 +53,12 @@ public partial class StateWalk : State
 	{
 		if (!_character.IsOnFloor())
 		{
-			_stateMachine.EmitSignal("state_changed", "StateFall");
+			Error error = _stateMachine.EmitSignal("state_changed", "StateFall");
+
+			if (error == Error.Unavailable)
+			{
+				GD.PrintRich("[color=red]ERROR[/color]: ", error);
+			}
 		}
 	}
 

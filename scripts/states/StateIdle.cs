@@ -11,6 +11,11 @@ public partial class StateIdle : State
 		_stateMachine = GetParent<Node>();
 
 		SPEED = (float)_character.Get("SPEED");
+
+		if (_character == null || _stateMachine == null || SPEED == 0)
+		{
+			GD.PrintRich("[color=red]ERROR[/color]: Idle state not properly initialized.");
+		}
 	}
 
 
@@ -18,12 +23,22 @@ public partial class StateIdle : State
 	{
 		if (Input.GetAxis("left", "right") != 0)
 		{
-			_stateMachine.EmitSignal("state_changed", "StateWalk");
+			Error error = _stateMachine.EmitSignal("state_changed", "StateWalk");
+
+			if (error == Error.Unavailable)
+			{
+				GD.PrintRich("[color=red]ERROR[/color]: ", error);
+			}
 		}
 
 		if (Input.IsActionJustPressed("jump"))
 		{
-			_stateMachine.EmitSignal("state_changed", "StateJump");
+			Error error = _stateMachine.EmitSignal("state_changed", "StateJump");
+
+			if (error == Error.Unavailable)
+			{
+				GD.PrintRich("[color=red]ERROR[/color]: ", error);
+			}
 		}
 	}
 
@@ -37,7 +52,12 @@ public partial class StateIdle : State
 
 		if (!_character.IsOnFloor())
 		{
-			_stateMachine.EmitSignal("state_changed", "StateFall");
+			Error error = _stateMachine.EmitSignal("state_changed", "StateFall");
+
+			if (error == Error.Unavailable)
+			{
+				GD.PrintRich("[color=red]ERROR[/color]: ", error);
+			}
 		}
 	}
 

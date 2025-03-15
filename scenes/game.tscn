@@ -17,7 +17,7 @@ position = Vector2(-165, 637)
 position = Vector2(1267, 639)
 
 [node name="AreaCompleted" parent="." instance=ExtResource("4_q063s")]
-position = Vector2(1122, 335)
+position = Vector2(1164, 204)
 
 [node name="DeathZone" parent="." instance=ExtResource("3_nrv3c")]
 position = Vector2(525, 743)

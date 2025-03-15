@@ -7,6 +7,11 @@ public partial class StateFall : State
 	{
 		_character = GetOwner<CharacterBody2D>();
 		_stateMachine = GetParent<Node>();
+
+		if (_character == null || _stateMachine == null)
+        {
+            GD.PrintRich("[color=red]ERROR[/color]: Fall state not properly initialized.");
+        }
 	}
 
 
@@ -19,7 +24,11 @@ public partial class StateFall : State
 	{
 		if (_character.IsOnFloor())
 		{
-			_stateMachine.EmitSignal("state_changed", "StateLand");
+			Error error = _stateMachine.EmitSignal("state_changed", "StateLand");
+			if (error == Error.Unavailable)
+			{
+				GD.PrintRich("[color=red]ERROR[/color]: ", error);
+			}
 		}
 		else	
 		{

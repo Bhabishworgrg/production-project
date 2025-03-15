@@ -10,7 +10,12 @@ public partial class StateJump : State
 	{
 		_character = GetOwner<CharacterBody2D>();
 		_stateMachine = GetParent<Node>();
-	
+
+		if (_character == null || _stateMachine == null)
+		{
+			GD.PrintRich("[color=red]ERROR[/color]: Jump state not properly initialized.");
+		}
+
 		float JUMP_VELOCITY = (float)_character.Get("JUMP_VELOCITY");
 		_character.Velocity = new Vector2(_character.Velocity.X, JUMP_VELOCITY);
 	}
@@ -25,7 +30,12 @@ public partial class StateJump : State
 	{
 		if (_character.Velocity.Y >= 0)
 		{
-			_stateMachine.EmitSignal("state_changed", "StateFall");
+			Error error = _stateMachine.EmitSignal("state_changed", "StateFall");
+
+			if (error == Error.Unavailable)
+			{
+				GD.PrintRich("[color=red]ERROR[/color]: ", error);
+			}
 		}
 
 		if (!_character.IsOnFloor())

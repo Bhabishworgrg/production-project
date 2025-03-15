@@ -8,13 +8,28 @@ public partial class StateLand : State
 		_character = GetOwner<CharacterBody2D>();
 		_stateMachine = GetParent<Node>();
 
+		if (_character == null || _stateMachine == null)
+		{
+			GD.PrintRich("[color=red]ERROR[/color]: Land state not properly initialized.");
+		}
+
 		if (Input.GetAxis("left", "right") == 0)
 		{
-			_stateMachine.EmitSignal("state_changed", "StateIdle");
+			Error error = _stateMachine.EmitSignal("state_changed", "StateIdle");
+			
+			if (error == Error.Unavailable)
+			{
+				GD.PrintRich("[color=red]ERROR[/color]: ", error);
+			}
 		}
 		else
 		{
-			_stateMachine.EmitSignal("state_changed", "StateWalk");
+			Error error = _stateMachine.EmitSignal("state_changed", "StateWalk");
+
+			if (error == Error.Unavailable)
+			{
+				GD.PrintRich("[color=red]ERROR[/color]: ", error);
+			}
 		}
 	}
 

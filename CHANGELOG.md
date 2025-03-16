@@ -14,3 +14,19 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Initial level scene with platform and player.
 - Level completion trigger area.
 - Death zone for death scene trigger.
+
+## [v0.1.0-alpha.2] - 2025-03-16
+
+### Added
+- Suppressed unnecessary warnings.
+- Relevant log messages for debugging.
+
+### Changed
+- Project directory structure.
+- Death screen to be preloaded on game start.
+- Made level complete scene reference immutable.
+- Exported player properties for easier tweaking.
+
+### Fixed
+- Unstable state transitions on landing.
+- Inability to change direction mid-air.

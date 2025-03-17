@@ -41,7 +41,7 @@ public partial class StateJump : State
 
 			if (error == Error.Unavailable)
 			{
-				GD.PrintRich("[color=red]ERROR[/color]: ", error);
+				GD.PrintRich("[color=red]ERROR[/color]: State change to Fall failed.");
 			}
 		}
 

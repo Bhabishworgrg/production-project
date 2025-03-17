@@ -28,7 +28,7 @@ public partial class StateWalk : State
 
 			if (error == Error.Unavailable)
 			{
-				GD.PrintRich("[color=red]ERROR[/color]: ", error);
+				GD.PrintRich("[color=red]ERROR[/color]: State change to Jump failed.");
 			}
 		}
 	
@@ -39,7 +39,7 @@ public partial class StateWalk : State
 
 			if (error == Error.Unavailable)
 			{
-				GD.PrintRich("[color=red]ERROR[/color]: ", error);
+				GD.PrintRich("[color=red]ERROR[/color]: State change to Idle failed."); 
 			}
 		}
 		else
@@ -57,7 +57,7 @@ public partial class StateWalk : State
 
 			if (error == Error.Unavailable)
 			{
-				GD.PrintRich("[color=red]ERROR[/color]: ", error);
+				GD.PrintRich("[color=red]ERROR[/color]: State change to Fall failed.");
 			}
 		}
 	}

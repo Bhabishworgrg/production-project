@@ -1,10 +1,10 @@
-[gd_scene format=3 uid="uid://b6hsg5dhwh6nx"]
+[gd_scene load_steps=2 format=3 uid="uid://b6hsg5dhwh6nx"]
+
+[ext_resource type="Texture2D" uid="uid://bspdbe5oru8s3" path="res://assets/level_complete.png" id="1_6ue5k"]
 
 [node name="CompleteUI" type="CanvasLayer"]
 
-[node name="Label" type="Label" parent="."]
-offset_left = 470.0
-offset_top = 316.0
-offset_right = 553.0
-offset_bottom = 339.0
-text = "COMPLETE"
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("1_6ue5k")

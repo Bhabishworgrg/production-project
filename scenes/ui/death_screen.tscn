@@ -1,10 +1,10 @@
-[gd_scene format=3 uid="uid://bhgx05vjmckb4"]
+[gd_scene load_steps=2 format=3 uid="uid://bhgx05vjmckb4"]
+
+[ext_resource type="Texture2D" uid="uid://br7g5elwigltg" path="res://assets/death_screen.png" id="1_r7g35"]
 
 [node name="DeathScreen" type="CanvasLayer"]
 
-[node name="Label" type="Label" parent="."]
-offset_left = 462.0
-offset_top = 204.0
-offset_right = 728.0
-offset_bottom = 227.0
-text = "GAME OVERRRRRRRRRRRRRRRRRR"
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_right = 1920.0
+offset_bottom = 1080.0
+texture = ExtResource("1_r7g35")

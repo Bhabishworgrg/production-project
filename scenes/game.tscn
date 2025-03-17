@@ -11,10 +11,10 @@
 position = Vector2(130, 223)
 
 [node name="Platform" parent="." instance=ExtResource("2_v7wes")]
-position = Vector2(556, 644)
+position = Vector2(720, 1040)
 
 [node name="AreaCompleted" parent="." instance=ExtResource("4_q063s")]
-position = Vector2(1164, 204)
+position = Vector2(1902, 649)
 
 [node name="DeathZone" parent="." instance=ExtResource("3_nrv3c")]
-position = Vector2(525, 743)
+position = Vector2(963, 1106)

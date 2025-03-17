@@ -30,3 +30,19 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Fixed
 - Unstable state transitions on landing.
 - Inability to change direction mid-air.
+
+## [v0.1.0-beta.1] - 2025-03-17
+
+### Changed
+- Added more detailed error logs.
+- Test levels for player movement and area triggers.
+
+### Fixed
+- Minor bug fixes.
+
+## [v0.1.0] - 2025-03-17
+
+### Changed
+- Adjusted game window to 1920x1080.
+- Set window mode to fullscreen.
+- Improved UI for death and completion screens.

@@ -1,0 +1,37 @@
+[gd_scene load_steps=3 format=3 uid="uid://pxhxdrwan5kc"]
+
+[ext_resource type="PackedScene" uid="uid://baao4rnkgcs1i" path="res://scenes/player.tscn" id="1_ole58"]
+[ext_resource type="PackedScene" uid="uid://c457unem78en7" path="res://scenes/platform.tscn" id="2_nef13"]
+
+[node name="TestMovement" type="Node2D"]
+
+[node name="Player" parent="." instance=ExtResource("1_ole58")]
+position = Vector2(168, 281)
+
+[node name="Platform" parent="." instance=ExtResource("2_nef13")]
+position = Vector2(204, 1060)
+scale = Vector2(0.3, 2)
+
+[node name="Platform2" parent="." instance=ExtResource("2_nef13")]
+position = Vector2(960, 409)
+scale = Vector2(0.3, 2)
+
+[node name="Platform3" parent="." instance=ExtResource("2_nef13")]
+position = Vector2(606, 652)
+scale = Vector2(0.3, 2)
+
+[node name="Platform4" parent="." instance=ExtResource("2_nef13")]
+position = Vector2(619, 945)
+scale = Vector2(0.3, 2)
+
+[node name="Platform5" parent="." instance=ExtResource("2_nef13")]
+position = Vector2(1048, 836)
+scale = Vector2(0.3, 2)
+
+[node name="Platform6" parent="." instance=ExtResource("2_nef13")]
+position = Vector2(1677, 1037)
+scale = Vector2(0.3, 2)
+
+[node name="Platform7" parent="." instance=ExtResource("2_nef13")]
+position = Vector2(1439, 236)
+scale = Vector2(0.3, 2)

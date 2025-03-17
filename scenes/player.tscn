@@ -10,18 +10,18 @@
 [ext_resource type="PackedScene" uid="uid://dc8e68547kn21" path="res://scenes/states/state_walk.tscn" id="8_mucvw"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_l0kkw"]
-size = Vector2(121, 119)
+size = Vector2(60, 120)
 
 [node name="Player" type="CharacterBody2D" groups=["player"]]
 script = ExtResource("1_duirn")
 JUMP_VELOCITY = -700.0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-0.5, 0.5)
-shape = SubResource("RectangleShape2D_l0kkw")
-
 [node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.46875, 0.9375)
 texture = ExtResource("2_no4fe")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_l0kkw")
 
 [node name="StateMachine" parent="." node_paths=PackedStringArray("_state") instance=ExtResource("3_ag3f3")]
 _state = NodePath("StateIdle")

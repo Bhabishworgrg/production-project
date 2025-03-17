@@ -7,9 +7,10 @@ size = Vector2(1276, 17)
 
 [node name="Platform" type="StaticBody2D"]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("RectangleShape2D_68tk2")
-
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(9.95703, 0.132812)
 texture = ExtResource("1_u07of")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_68tk2")
+debug_color = Color(0.604872, 0.539605, 0.116529, 0.42)

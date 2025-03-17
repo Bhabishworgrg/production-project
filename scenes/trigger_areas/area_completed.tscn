@@ -10,5 +10,6 @@ script = ExtResource("1_vr7tv")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_l1rb4")
+debug_color = Color(0.100042, 0.648284, 3.85046e-07, 0.42)
 
 [connection signal="body_entered" from="." to="." method="_on_player_entered"]

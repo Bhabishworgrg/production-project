@@ -11,10 +11,7 @@
 position = Vector2(130, 223)
 
 [node name="Platform" parent="." instance=ExtResource("2_v7wes")]
-position = Vector2(-165, 637)
-
-[node name="Platform2" parent="." instance=ExtResource("2_v7wes")]
-position = Vector2(1267, 639)
+position = Vector2(556, 644)
 
 [node name="AreaCompleted" parent="." instance=ExtResource("4_q063s")]
 position = Vector2(1164, 204)

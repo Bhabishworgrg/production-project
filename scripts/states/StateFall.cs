@@ -37,7 +37,7 @@ public partial class StateFall : State
 			Error error = _stateMachine.EmitSignal("state_changed", "StateLand");
 			if (error == Error.Unavailable)
 			{
-				GD.PrintRich("[color=red]ERROR[/color]: ", error);
+				GD.PrintRich("[color=red]ERROR[/color]: State change to Land failed.");
 			}
 		}
 		else	

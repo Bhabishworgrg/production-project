@@ -46,3 +46,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Adjusted game window to 1920x1080.
 - Set window mode to fullscreen.
 - Improved UI for death and completion screens.
+
+## [v0.2.0-alpha.1] - 2025-03-30
+
+### Added
+- Background removal using the rembg dependency.
+- Texture generation for the player and platforms.
+- Collision shape generation for the player and platforms.
+
+### Changed
+- Placeholder textures for player and platforms to user generated textures.
+- Placeholder collision shapes for player and platforms to user generated collision shapes.

@@ -57,3 +57,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 - Placeholder textures for player and platforms to user generated textures.
 - Placeholder collision shapes for player and platforms to user generated collision shapes.
+
+## [v0.2.0-alpha.2] - 2025-03-30
+
+### Changed
+- Order of nodes in the scene tree.
+
+### Removed
+- Usage of rembg.
+
+### Fixed
+- Alignment of collision shapes with textures.

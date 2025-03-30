@@ -1,4 +1,4 @@
-[gd_scene load_steps=2 format=3 uid="uid://cm4hnvpkf2kli"]
+[gd_scene load_steps=2 format=3 uid="uid://b5pf05mkglflu"]
 
 [ext_resource type="Script" path="res://scripts/img_proc/collision_shape_generator.gd" id="1_q28ht"]
 

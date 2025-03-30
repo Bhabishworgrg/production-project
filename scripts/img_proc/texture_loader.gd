@@ -2,7 +2,7 @@ extends Node
 
 
 func _ready() -> void:
-	var file_path: String = 'res://assets/player.png'
+	var file_path: String = 'res://assets/' + owner.name + '.png'
 	var texture: Texture2D = load(file_path)
 	
 	if texture:

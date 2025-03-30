@@ -2,7 +2,7 @@ extends Node
 
 
 func _ready() -> void:
-	var image: Image = Image.load_from_file('res://assets/player.png')
+	var image: Image = Image.load_from_file('res://assets/' + owner.name + '.png')
 	var size: Vector2 = image.get_size()
 	var points: PackedVector2Array
 	var color: Color

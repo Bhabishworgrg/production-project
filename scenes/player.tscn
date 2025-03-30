@@ -27,6 +27,6 @@ _state = NodePath("StateIdle")
 
 [node name="StateLand" parent="StateMachine" instance=ExtResource("7_gluaf")]
 
-[node name="CollisionShapeGenerator" parent="." instance=ExtResource("9_2ed4v")]
-
 [node name="TextureLoader" parent="." instance=ExtResource("8_yvtnv")]
+
+[node name="CollisionShapeGenerator" parent="." instance=ExtResource("9_2ed4v")]

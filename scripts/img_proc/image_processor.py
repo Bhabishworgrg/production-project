@@ -4,10 +4,13 @@ from rembg import remove
 from PIL import Image
 from io import BytesIO
 from sys import argv
+import os
+
 
 input_path = argv[1]
 image_name = argv[2]
 output_path = f'../../assets/{image_name}.png'
+
 
 def remove_white_background(image_path, output_path):
     img = cv2.imread(image_path)
@@ -22,4 +25,18 @@ def remove_white_background(image_path, output_path):
 
     cv2.imwrite(output_path, img_cv)
 
-remove_white_background(input_path, output_path)
+
+def resize_image(image_path, width, height):
+    image = cv2.imread(image_path)
+    resized_image = cv2.resize(image, (width, height))
+    cv2.imwrite(image_path, resized_image)
+
+
+def main():
+    if image_name == 'Platform':
+        resize_image(input_path, 1920, 1200)
+    remove_white_background(input_path, output_path)
+
+
+if __name__ == "__main__":
+    main()

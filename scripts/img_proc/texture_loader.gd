@@ -7,7 +7,10 @@ func _ready() -> void:
 	
 	if texture:
 		var sprite: Sprite2D = Sprite2D.new()
-		sprite.centered = false
+		if owner.is_in_group('player'):
+			sprite.centered = true
+		else:
+			sprite.centered = false
 		sprite.texture = texture
 		owner.add_child.call_deferred(sprite)
 	else:

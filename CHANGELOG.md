@@ -68,3 +68,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Fixed
 - Alignment of collision shapes with textures.
+
+## [v0.2.0-alpha.3] - 2025-03-31
+
+### Added
+- Resized platform resolution to 1920x1200.
+
+### Changed
+- Player collision shape to a capsule, improving movement smoothness.
+
+### Fixed
+- Collision inconsistencies in between player and platform.

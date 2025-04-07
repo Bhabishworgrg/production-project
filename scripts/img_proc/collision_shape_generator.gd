@@ -2,16 +2,15 @@ extends Node
 
 
 func _ready() -> void:
-	var image: Image = Image.load_from_file('res://assets/' + owner.name + '.png')
-	var size: Vector2 = image.get_size()
 	var color: Color
-	var collision_shape
-	var left: int = size.x
-	var right: int = 0
-	var top: int = size.y
-	var bottom: int = 0
 
 	if owner.is_in_group('player'):
+		var image: Image = Image.load_from_file('res://assets/Player.png')
+		var size: Vector2 = image.get_size()
+		var left: int = size.x
+		var right: int = 0
+		var top: int = size.y
+		var bottom: int = 0
 		for x in range(size.x):
 			for y in range(size.y):
 				color = image.get_pixel(x, y)
@@ -25,23 +24,40 @@ func _ready() -> void:
 					if y > bottom:
 						bottom = y
 
-		collision_shape = CollisionShape2D.new()
+		var collision_shape = CollisionShape2D.new()
 		var capsule_shape = CapsuleShape2D.new()
 		capsule_shape.radius = right - left
 		capsule_shape.height = bottom - top
 		collision_shape.shape = capsule_shape
 
+		owner.add_child.call_deferred(collision_shape)
 	else:
-		var points: PackedVector2Array
+		var image: Image = Image.load_from_file('res://assets/Platform.png')
+		var size: Vector2 = image.get_size()
 		
-		for x in range(size.x):
-			for y in range(size.y):
-				color = image.get_pixel(x,y)
-				if (color.a > 0.1):
-					points.append(Vector2(x, y))
+		var segments := 50
+			
+		var x_segment := size.x / segments
+		var y_segment := size.y / segments
 
-		collision_shape = CollisionPolygon2D.new()
-		collision_shape.build_mode = CollisionPolygon2D.BUILD_SEGMENTS
-		collision_shape.polygon = points
-	
-	owner.add_child.call_deferred(collision_shape)
+		for i in range(segments):
+			for j in range(segments):
+				var points := PackedVector2Array()
+				
+				var x_start := int(i * x_segment)
+				var x_end := int((i + 1) * x_segment)
+				var y_start := int(j * y_segment)
+				var y_end := int((j + 1) * y_segment)
+
+				for x in range(x_start, x_end):
+					for y in range(y_start, y_end):
+						color = image.get_pixel(x, y)
+						if color.a > 0.1:
+							points.append(Vector2(x, y))
+
+				var hull := Geometry2D.convex_hull(points)
+				
+				var collision_shape := CollisionPolygon2D.new()
+				collision_shape.polygon = hull
+				
+				owner.call_deferred("add_child", collision_shape)

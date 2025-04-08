@@ -79,3 +79,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Fixed
 - Collision inconsistencies in between player and platform.
+
+## [v0.2.0-alpha.4] - 2025-04-08
+
+### Added
+- Collision shape generation in segments for improved performance. 
+
+### Changed
+- Lower white threshold range in background removal algorithm.
+
+### Fixed
+- Collision shape and texture not loading in exported game state.

@@ -13,10 +13,11 @@ func _ready() -> void:
 			var exe_dir = OS.get_executable_path().get_base_dir()
 			image = Image.load_from_file(exe_dir.path_join('/assets/Player.png'))
 		var size: Vector2 = image.get_size()
-		var left: int = size.x
-		var right: int = 0
-		var top: int = size.y
-		var bottom: int = 0
+		var left: float = size.x
+		var right: float = 0
+		var top: float = size.y
+		var bottom: float = 0
+
 		for x in range(size.x):
 			for y in range(size.y):
 				color = image.get_pixel(x, y)

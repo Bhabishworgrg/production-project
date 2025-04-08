@@ -90,3 +90,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Fixed
 - Collision shape and texture not loading in exported game state.
+
+## [v0.2.0-alpha.5] - 2025-04-08
+
+### Added
+- Skimage filters for edge detection and dynamic threshold calculation  
+
+### Changed
+- Background removal algorithm to Sobel edge detection + Otsu's thresholding.

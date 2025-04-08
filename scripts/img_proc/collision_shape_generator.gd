@@ -3,9 +3,15 @@ extends Node
 
 func _ready() -> void:
 	var color: Color
-
+	print("====" + OS.get_executable_path() + "====")
+	print("====" + OS.get_executable_path().get_base_dir() + "====")
 	if owner.is_in_group('player'):
-		var image: Image = Image.load_from_file('res://assets/Player.png')
+		var image: Image
+		if not Engine.is_editor_hint():
+			image = Image.load_from_file("res://assets/Player.png")
+		else:
+			var exe_dir = OS.get_executable_path().get_base_dir()
+			image = Image.load_from_file(exe_dir.path_join('/assets/Player.png'))
 		var size: Vector2 = image.get_size()
 		var left: int = size.x
 		var right: int = 0
@@ -32,7 +38,12 @@ func _ready() -> void:
 
 		owner.add_child.call_deferred(collision_shape)
 	else:
-		var image: Image = Image.load_from_file('res://assets/Platform.png')
+		var image: Image
+		if not Engine.is_editor_hint():
+			image = Image.load_from_file("res://assets/Platform.png")
+		else:
+			var exe_dir = OS.get_executable_path().get_base_dir()
+			image = Image.load_from_file(exe_dir.path_join("assets/Platform.png"))
 		var size: Vector2 = image.get_size()
 		
 		var segments := 50

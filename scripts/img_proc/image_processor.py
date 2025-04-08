@@ -16,7 +16,7 @@ def remove_white_background(image_path, output_path):
     img = cv2.imread(image_path)
     img_cv = cv2.cvtColor(img, cv2.COLOR_RGBA2BGRA)
 
-    lower_white = np.array([200, 200, 200, 0])
+    lower_white = np.array([100, 100, 100, 0])
     upper_white = np.array([255, 255, 255, 255])
 
     mask = cv2.inRange(img_cv, lower_white, upper_white)

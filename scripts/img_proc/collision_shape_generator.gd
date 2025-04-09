@@ -1,6 +1,10 @@
 extends Node
 
 
+@export
+var SEGMENT_COUNT: int = 50
+
+
 func _ready() -> void:
 	var color: Color
 	var image: Image
@@ -46,13 +50,12 @@ func _ready() -> void:
 		image = Image.load_from_file(assets_dir.path_join('Platform.png'))
 		size = image.get_size()
 		
-		var segment_count: int = 50
-		var x_segment: int = int(size.x / segment_count)
-		var y_segment: int = int(size.y / segment_count)
+		var x_segment: int = int(size.x / SEGMENT_COUNT)
+		var y_segment: int = int(size.y / SEGMENT_COUNT)
 		var collision_shape: CollisionPolygon2D
 		
-		for i in range(segment_count):
-			for j in range(segment_count):
+		for i in range(SEGMENT_COUNT):
+			for j in range(SEGMENT_COUNT):
 				var points: PackedVector2Array = PackedVector2Array()
 				
 				var x_start: int = i * x_segment

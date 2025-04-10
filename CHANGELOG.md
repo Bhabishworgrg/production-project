@@ -107,3 +107,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 - Player collision shape's size datatype to float for better precision.
 - Improved sobel edge detection algorithm.
+
+## [v0.2.0] - 2025-04-10
+
+### Added
+- Tests for background removal, texture generation, and collision shape generation.
+
+### Changed
+- Environment rendering colour to white.
+- Segment count to 200 for platform collision shape generation.

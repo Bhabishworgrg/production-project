@@ -8,3 +8,4 @@
 [node name="TextureLoader" parent="." instance=ExtResource("2_r8il5")]
 
 [node name="CollisionShapeGenerator" parent="." instance=ExtResource("1_714uq")]
+SEGMENT_COUNT = 200

@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://bdeiqeu762jn2"]
+
+[node name="ImportScreen" type="CanvasLayer"]
+
+[node name="TextureRect" type="ColorRect" parent="."]
+offset_right = 1920.0
+offset_bottom = 1080.0
+color = Color(0, 0, 0, 1)
+
+[node name="Button" type="Button" parent="."]
+offset_left = 896.0
+offset_top = 772.0
+offset_right = 1024.0
+offset_bottom = 836.0
+text = "Import"
+
+[node name="FileDialog" type="FileDialog" parent="."]
+title = "Open a File"
+initial_position = 1
+size = Vector2i(800, 600)
+ok_button_text = "Open"
+file_mode = 0
+access = 2

@@ -1,4 +1,6 @@
-[gd_scene format=3 uid="uid://bdeiqeu762jn2"]
+[gd_scene load_steps=2 format=3 uid="uid://bdeiqeu762jn2"]
+
+[ext_resource type="Script" path="res://scripts/ui/import.gd" id="1_m5snl"]
 
 [node name="ImportScreen" type="CanvasLayer"]
 
@@ -7,17 +9,83 @@ offset_right = 1920.0
 offset_bottom = 1080.0
 color = Color(0, 0, 0, 1)
 
-[node name="Button" type="Button" parent="."]
-offset_left = 896.0
-offset_top = 772.0
-offset_right = 1024.0
-offset_bottom = 836.0
-text = "Import"
+[node name="PlayerImportContainer" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_m5snl")
 
-[node name="FileDialog" type="FileDialog" parent="."]
-title = "Open a File"
+[node name="FileDialog" type="FileDialog" parent="PlayerImportContainer"]
+title = "Import Sprite"
 initial_position = 1
 size = Vector2i(800, 600)
-ok_button_text = "Open"
+mode_overrides_title = false
 file_mode = 0
 access = 2
+
+[node name="PathField" type="LineEdit" parent="PlayerImportContainer"]
+layout_mode = 2
+offset_left = 658.0
+offset_top = 400.0
+offset_right = 1042.0
+offset_bottom = 464.0
+
+[node name="ImportButton" type="Button" parent="PlayerImportContainer"]
+layout_mode = 2
+offset_left = 1067.0
+offset_top = 400.0
+offset_right = 1195.0
+offset_bottom = 464.0
+text = "Import"
+
+[node name="Label" type="Label" parent="PlayerImportContainer"]
+layout_mode = 0
+offset_left = 659.0
+offset_top = 365.0
+offset_right = 831.0
+offset_bottom = 396.0
+text = "Player"
+
+[node name="PlatformImportContainer" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_m5snl")
+
+[node name="FileDialog" type="FileDialog" parent="PlatformImportContainer"]
+auto_translate_mode = 1
+title = "Import Platform"
+initial_position = 1
+size = Vector2i(800, 600)
+mode_overrides_title = false
+file_mode = 0
+access = 2
+
+[node name="PathField" type="LineEdit" parent="PlatformImportContainer"]
+layout_mode = 2
+offset_left = 658.0
+offset_top = 600.0
+offset_right = 1042.0
+offset_bottom = 664.0
+
+[node name="ImportButton" type="Button" parent="PlatformImportContainer"]
+layout_mode = 2
+offset_left = 1067.0
+offset_top = 600.0
+offset_right = 1195.0
+offset_bottom = 664.0
+text = "Import"
+
+[node name="Label" type="Label" parent="PlatformImportContainer"]
+offset_left = 658.0
+offset_top = 563.0
+offset_right = 830.0
+offset_bottom = 594.0
+text = "Platform"
+
+[connection signal="file_selected" from="PlayerImportContainer/FileDialog" to="PlayerImportContainer" method="_on_file_selected"]
+[connection signal="pressed" from="PlayerImportContainer/ImportButton" to="PlayerImportContainer" method="_on_button_pressed"]
+[connection signal="file_selected" from="PlatformImportContainer/FileDialog" to="PlatformImportContainer" method="_on_file_selected"]
+[connection signal="pressed" from="PlatformImportContainer/ImportButton" to="PlatformImportContainer" method="_on_button_pressed"]

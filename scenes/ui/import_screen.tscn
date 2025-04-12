@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://bdeiqeu762jn2"]
+[gd_scene load_steps=3 format=3 uid="uid://bdeiqeu762jn2"]
 
 [ext_resource type="Script" path="res://scripts/ui/import.gd" id="1_m5snl"]
+[ext_resource type="Script" path="res://scripts/ui/GenerateButton.cs" id="2_wcpue"]
 
 [node name="ImportScreen" type="CanvasLayer"]
 
@@ -20,6 +21,7 @@ script = ExtResource("1_m5snl")
 title = "Import Sprite"
 initial_position = 1
 size = Vector2i(800, 600)
+ok_button_text = "Open"
 mode_overrides_title = false
 file_mode = 0
 access = 2
@@ -59,6 +61,7 @@ auto_translate_mode = 1
 title = "Import Platform"
 initial_position = 1
 size = Vector2i(800, 600)
+ok_button_text = "Open"
 mode_overrides_title = false
 file_mode = 0
 access = 2
@@ -79,11 +82,22 @@ offset_bottom = 664.0
 text = "Import"
 
 [node name="Label" type="Label" parent="PlatformImportContainer"]
+layout_mode = 0
 offset_left = 658.0
 offset_top = 563.0
 offset_right = 830.0
 offset_bottom = 594.0
 text = "Platform"
+
+[node name="GenerateButton" type="Button" parent="." node_paths=PackedStringArray("playerPathField", "platformPathField")]
+offset_left = 837.0
+offset_top = 810.0
+offset_right = 1083.0
+offset_bottom = 871.0
+text = "Generate Level"
+script = ExtResource("2_wcpue")
+playerPathField = NodePath("../PlayerImportContainer/PathField")
+platformPathField = NodePath("../PlatformImportContainer/PathField")
 
 [connection signal="file_selected" from="PlayerImportContainer/FileDialog" to="PlayerImportContainer" method="_on_file_selected"]
 [connection signal="pressed" from="PlayerImportContainer/ImportButton" to="PlayerImportContainer" method="_on_button_pressed"]

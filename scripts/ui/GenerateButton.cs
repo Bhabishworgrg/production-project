@@ -11,7 +11,6 @@ public partial class GenerateButton : Button
 
 	public override void _Ready()
 	{
-		RunPythonScript();
 	}
 
 
@@ -20,9 +19,15 @@ public partial class GenerateButton : Button
 	}
 
 
+	private void _OnPressed()
+	{
+		RunPythonScript();
+		GetTree().CallDeferred(SceneTree.MethodName.ChangeSceneToFile, "res://scenes/game.tscn");
+	}
+
+
 	public void RunPythonScript()
 	{
-		GD.Print();
 		string pythonPath = "";
 		string scriptPath = "";
 		if (Engine.IsEditorHint())
@@ -43,7 +48,6 @@ public partial class GenerateButton : Button
 			FileName = pythonPath,
 			Arguments = arguments,
 			UseShellExecute = false,
-			RedirectStandardOutput = true,
 			RedirectStandardError = true,
 			CreateNoWindow = true
 		};
@@ -57,7 +61,11 @@ public partial class GenerateButton : Button
 
 		if (!string.IsNullOrEmpty(error))
 		{
-			GD.Print($"ERROR: {error}");
+			GD.PrintRich($"[color=red]ERROR[/color]: {error}");
+		}
+		else
+		{
+			GD.Print("INFO: Image Processor script executed successfully.");
 		}
 	}
 }

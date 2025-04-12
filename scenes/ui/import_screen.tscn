@@ -103,3 +103,4 @@ platformPathField = NodePath("../PlatformImportContainer/PathField")
 [connection signal="pressed" from="PlayerImportContainer/ImportButton" to="PlayerImportContainer" method="_on_button_pressed"]
 [connection signal="file_selected" from="PlatformImportContainer/FileDialog" to="PlatformImportContainer" method="_on_file_selected"]
 [connection signal="pressed" from="PlatformImportContainer/ImportButton" to="PlatformImportContainer" method="_on_button_pressed"]
+[connection signal="pressed" from="GenerateButton" to="GenerateButton" method="_OnPressed"]

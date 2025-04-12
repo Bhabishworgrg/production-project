@@ -116,3 +116,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 - Environment rendering colour to white.
 - Segment count to 200 for platform collision shape generation.
+
+## [v0.3.0-alpha.1] - 2025-04-12
+
+### Added
+- Import screen for image file paths.
+- File dialogs for completing image paths.
+- Subprocess call for image processing.
+- Scene change to game scene after image processing.

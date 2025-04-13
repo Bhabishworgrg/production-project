@@ -9,6 +9,10 @@ public partial class GenerateButton : Button
 	[Export] private LineEdit platformPathField;
 
 
+	private string pythonPath;
+	private string scriptPath;
+
+
 	public override void _Ready()
 	{
 	}
@@ -26,10 +30,8 @@ public partial class GenerateButton : Button
 	}
 
 
-	public void RunPythonScript()
+	private void RunPythonScript()
 	{
-		string pythonPath = "";
-		string scriptPath = "";
 		if (Engine.IsEditorHint())
 		{
 			pythonPath = OS.GetExecutablePath().GetBaseDir().PathJoin("venv/bin/python");
@@ -41,8 +43,13 @@ public partial class GenerateButton : Button
 			scriptPath = ProjectSettings.GlobalizePath("res://").PathJoin("scripts/img_proc/image_processor.py");
 		}
 
-		string arguments = $"{scriptPath} {platformPathField.Text} Platform";
+		RunImageProcessor($"{scriptPath} {platformPathField.Text} Platform");
+		RunImageProcessor($"{scriptPath} {playerPathField.Text} Player");
+	}
 
+
+	private void RunImageProcessor(string arguments)
+	{
 		ProcessStartInfo start = new ProcessStartInfo
 		{
 			FileName = pythonPath,

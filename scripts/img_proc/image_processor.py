@@ -3,8 +3,9 @@ import numpy as np
 import sys 
 from skimage import filters
 from scipy.ndimage import binary_fill_holes
- 
-output = f'../../assets/{sys.argv[2]}.png'
+from os import path 
+
+output = f'{path.dirname(__file__)}/../../assets/{sys.argv[2]}.png'
 image = cv2.imread(sys.argv[1]);
 
 # Gray scale conversion

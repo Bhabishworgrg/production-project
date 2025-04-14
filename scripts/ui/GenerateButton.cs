@@ -1,4 +1,5 @@
 using Godot;
+using System;
 using System.Diagnostics;
 using System.IO;
 
@@ -36,30 +37,32 @@ public partial class GenerateButton : Button
 
 	private void RunImageProcessor(string assetPath, string assetType)
 	{
-		ProcessStartInfo start = new ProcessStartInfo
+		try 
 		{
-			FileName = pythonPath,
-			Arguments = $"{scriptPath} {assetPath} {assetType}",
-			UseShellExecute = false,
-			RedirectStandardError = true,
-			CreateNoWindow = true
-		};
+			ProcessStartInfo start = new ProcessStartInfo
+			{
+				FileName = pythonPath,
+				Arguments = $"{scriptPath} {assetPath} {assetType}",
+				UseShellExecute = false,
+				RedirectStandardError = true,
+				CreateNoWindow = true
+			};
+		
+			using Process process = Process.Start(start);
+			using StreamReader errorReader = process.StandardError;
 
-		using Process process = Process.Start(start);
-		if (process is null)
+			string error = errorReader.ReadToEnd();
+
+			process.WaitForExit();
+
+			if (!string.IsNullOrEmpty(error))
+			{
+				GD.PrintRich($"[color=red]ERROR[/color]: {error}");
+			}
+		}
+		catch (Exception error)
 		{
-			GD.PrintRich("[color=red]ERROR[/color]: Failed to start the process.");
-    	}
-
-		using StreamReader errorReader = process.StandardError;
-
-		string error = errorReader.ReadToEnd();
-
-		process.WaitForExit();
-
-		if (!string.IsNullOrEmpty(error))
-		{
-			GD.PrintRich($"[color=red]ERROR[/color]: {error}");
+			GD.PrintRich($"[color=red]ERROR[/color]: {error.Message}");
 		}
 	}
 }

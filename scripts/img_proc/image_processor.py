@@ -5,6 +5,7 @@ from skimage import filters
 from scipy.ndimage import binary_fill_holes
 from os import path 
 
+
 if len(sys.argv) != 3:
     print(f'{len(sys.argv)} arguments provided. Expected 2 arguments.')
     sys.exit(1)

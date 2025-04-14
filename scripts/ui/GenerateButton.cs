@@ -13,16 +13,6 @@ public partial class GenerateButton : Button
 	private string scriptPath;
 
 
-	public override void _Ready()
-	{
-	}
-
-
-	public override void _Process(double delta)
-	{
-	}
-
-
 	private void _OnPressed()
 	{
 		RunPythonScript();
@@ -32,28 +22,24 @@ public partial class GenerateButton : Button
 
 	private void RunPythonScript()
 	{
-		if (Engine.IsEditorHint())
-		{
-			pythonPath = OS.GetExecutablePath().GetBaseDir().PathJoin("venv/bin/python");
-			scriptPath = OS.GetExecutablePath().GetBaseDir().PathJoin("scripts/image_processor.py");
-		}
-		else
-		{
-			pythonPath = ProjectSettings.GlobalizePath("res://").PathJoin("venv/bin/python");
-			scriptPath = ProjectSettings.GlobalizePath("res://").PathJoin("scripts/img_proc/image_processor.py");
-		}
+		string basePath = Engine.IsEditorHint() 
+			? OS.GetExecutablePath().GetBaseDir() 
+			: ProjectSettings.GlobalizePath("res://");
 
-		RunImageProcessor($"{scriptPath} {platformPathField.Text} Platform");
-		RunImageProcessor($"{scriptPath} {playerPathField.Text} Player");
+        pythonPath = Path.Join(basePath, "venv", "bin", "python");
+        scriptPath = Path.Join(basePath, "scripts", "img_proc", "image_processor.py");
+		
+		RunImageProcessor(platformPathField.Text, "Platform");
+		RunImageProcessor(playerPathField.Text, "Player");
 	}
 
 
-	private void RunImageProcessor(string arguments)
+	private void RunImageProcessor(string assetPath, string assetType)
 	{
 		ProcessStartInfo start = new ProcessStartInfo
 		{
 			FileName = pythonPath,
-			Arguments = arguments,
+			Arguments = $"{scriptPath} {assetPath} {assetType}",
 			UseShellExecute = false,
 			RedirectStandardError = true,
 			CreateNoWindow = true

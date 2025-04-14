@@ -8,16 +8,17 @@ public partial class GenerateButton : Button
 {
 	[Export] private LineEdit playerPathField;
 	[Export] private LineEdit platformPathField;
-
-
+	
 	private string pythonPath;
 	private string scriptPath;
+	
+	private const string GAME_SCENE = "res://scenes/game.tscn";
 
 
 	private void _OnPressed()
 	{
 		RunPythonScript();
-		GetTree().CallDeferred(SceneTree.MethodName.ChangeSceneToFile, "res://scenes/game.tscn");
+		GetTree().CallDeferred(SceneTree.MethodName.ChangeSceneToFile, GAME_SCENE);
 	}
 
 

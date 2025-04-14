@@ -124,3 +124,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - File dialogs for completing image paths.
 - Subprocess call for image processing.
 - Scene change to game scene after image processing.
+
+## [v0.3.0-alpha.2] - 2025-04-14
+
+### Added
+- Player import functionality in the import screen.
+
+### Changed
+- Main scene to import screen.
+
+### Fixed
+- Image processing output path issue.

@@ -60,6 +60,11 @@ public partial class GenerateButton : Button
 		};
 
 		using Process process = Process.Start(start);
+		if (process is null)
+		{
+			GD.PrintRich("[color=red]ERROR[/color]: Failed to start the process.");
+    	}
+
 		using StreamReader errorReader = process.StandardError;
 
 		string error = errorReader.ReadToEnd();
@@ -69,10 +74,6 @@ public partial class GenerateButton : Button
 		if (!string.IsNullOrEmpty(error))
 		{
 			GD.PrintRich($"[color=red]ERROR[/color]: {error}");
-		}
-		else
-		{
-			GD.Print("INFO: Image Processor script executed successfully.");
 		}
 	}
 }

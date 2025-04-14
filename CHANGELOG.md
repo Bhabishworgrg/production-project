@@ -135,3 +135,17 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Fixed
 - Image processing output path issue.
+
+## [v0.3.0-beta.1] - 2025-04-14
+
+### Added
+- Logging and error checks for image processing.
+
+### Changed
+- Optimized Python subprocess calls and refactoring.
+
+### Removed
+- Image processing previews.
+
+### Fixed
+- Inoperative error log on process start failure.

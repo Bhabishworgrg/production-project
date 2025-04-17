@@ -89,18 +89,18 @@ offset_right = 830.0
 offset_bottom = 594.0
 text = "Platform"
 
-[node name="GenerateButton" type="Button" parent="." node_paths=PackedStringArray("playerPathField", "platformPathField")]
+[node name="GenerateButton" type="Button" parent="." node_paths=PackedStringArray("_playerPathField", "_platformPathField")]
 offset_left = 837.0
 offset_top = 810.0
 offset_right = 1083.0
 offset_bottom = 871.0
 text = "Generate Level"
 script = ExtResource("2_wcpue")
-playerPathField = NodePath("../PlayerImportContainer/PathField")
-platformPathField = NodePath("../PlatformImportContainer/PathField")
+_playerPathField = NodePath("../PlayerImportContainer/PathField")
+_platformPathField = NodePath("../PlatformImportContainer/PathField")
 
 [connection signal="file_selected" from="PlayerImportContainer/FileDialog" to="PlayerImportContainer" method="_on_file_selected"]
 [connection signal="pressed" from="PlayerImportContainer/ImportButton" to="PlayerImportContainer" method="_on_button_pressed"]
 [connection signal="file_selected" from="PlatformImportContainer/FileDialog" to="PlatformImportContainer" method="_on_file_selected"]
 [connection signal="pressed" from="PlatformImportContainer/ImportButton" to="PlatformImportContainer" method="_on_button_pressed"]
-[connection signal="pressed" from="GenerateButton" to="GenerateButton" method="_OnPressed"]
+[connection signal="pressed" from="GenerateButton" to="GenerateButton" method="OnPressed"]

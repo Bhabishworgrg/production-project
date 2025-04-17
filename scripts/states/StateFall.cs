@@ -3,7 +3,7 @@ using Godot;
 
 public partial class StateFall : State 
 {
-	private float SPEED;
+	private float _speed;
 
 
 	public override void Enter()
@@ -11,7 +11,7 @@ public partial class StateFall : State
 		_character = GetOwner<CharacterBody2D>();
 		_stateMachine = GetParent<Node>();
 		
-		SPEED = (float)_character.Get("SPEED");
+		_speed = (float)_character.Get("speed");
 
 		if (_character == null || _stateMachine == null)
         {
@@ -25,7 +25,7 @@ public partial class StateFall : State
 		float direction = Input.GetAxis("left", "right");
 		if (direction != 0)
 		{
-			_character.Velocity = new Vector2(direction * SPEED, _character.Velocity.Y);
+			_character.Velocity = new Vector2(direction * _speed, _character.Velocity.Y);
 		}
 	}
 

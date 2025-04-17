@@ -2,9 +2,9 @@ extends CharacterBody2D
 
 
 @export
-var SPEED: float = 300.0
+var speed: float = 300.0
 @export
-var JUMP_VELOCITY: float = -400.0
+var jump_velocity: float = -400.0
 
 
 func _ready() -> void:

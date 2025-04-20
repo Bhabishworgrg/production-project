@@ -6,7 +6,7 @@ from scipy.ndimage import binary_fill_holes
 from os import path 
 
 
-def remove_background(image):
+def _remove_background(image: np.ndarray) -> np.ndarray:
     # Gray scale conversion
     image_gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
 
@@ -34,7 +34,7 @@ def remove_background(image):
     return image_rgba
 
 
-def main():
+def _main() -> None:
     if len(sys.argv) != 3:
         print(f'{len(sys.argv)} arguments provided. Expected 2 arguments.')
         sys.exit(1)
@@ -61,4 +61,4 @@ def main():
 
 
 if __name__ == '__main__':
-    main()
+    _main()

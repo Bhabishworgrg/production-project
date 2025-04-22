@@ -94,14 +94,17 @@ layout_mode = 3
 anchors_preset = 0
 
 [node name="OptionButton" type="OptionButton" parent="AlgorithmSelectContainer"]
+layout_mode = 0
 offset_left = 697.0
 offset_top = 700.0
 offset_right = 1233.0
 offset_bottom = 763.0
-item_count = 2
+item_count = 3
 popup/item_0/text = "Color Thresholding"
 popup/item_1/text = "Edge Detection"
 popup/item_1/id = 1
+popup/item_2/text = "Edge Detection (w/o fill)"
+popup/item_2/id = 2
 
 [node name="Label" type="Label" parent="AlgorithmSelectContainer"]
 layout_mode = 0
@@ -111,7 +114,7 @@ offset_right = 944.0
 offset_bottom = 698.0
 text = "Background Removal Algorithm"
 
-[node name="GenerateButton" type="Button" parent="." node_paths=PackedStringArray("_playerPathField", "_platformPathField")]
+[node name="GenerateButton" type="Button" parent="." node_paths=PackedStringArray("_playerPathField", "_platformPathField", "_algorithmOption")]
 offset_left = 837.0
 offset_top = 900.0
 offset_right = 1083.0
@@ -120,6 +123,7 @@ text = "Generate Level"
 script = ExtResource("2_wcpue")
 _playerPathField = NodePath("../PlayerImportContainer/PathField")
 _platformPathField = NodePath("../PlatformImportContainer/PathField")
+_algorithmOption = NodePath("../AlgorithmSelectContainer/OptionButton")
 
 [connection signal="file_selected" from="PlayerImportContainer/FileDialog" to="PlayerImportContainer" method="_on_file_selected"]
 [connection signal="pressed" from="PlayerImportContainer/ImportButton" to="PlayerImportContainer" method="_on_button_pressed"]

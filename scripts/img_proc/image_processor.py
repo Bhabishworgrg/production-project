@@ -9,42 +9,55 @@ from os import path
 def _remove_background(image: np.ndarray, algorithm: str) -> np.ndarray:
     if algorithm == 'color_threshold':
         image_rgba = cv2.cvtColor(image, cv2.COLOR_BGR2RGBA)
-
+    
         lower_white = np.array([200, 200, 200, 0])
         upper_white = np.array([255, 255, 255, 255])
 
         mask = cv2.inRange(image_rgba, lower_white, upper_white)
+
         image_rgba[:, :, 3] = np.where(mask == 255, 0, image_rgba[:, :, 3])
-        
         return image_rgba
     
     if algorithm == 'edge_detection':
-        # Gray scale conversion
         image_gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
+        image_rgba = cv2.cvtColor(image, cv2.COLOR_BGR2RGBA)
 
-        # Sobel edge detection
         sobel = filters.sobel(image_gray)
-
         threshold = filters.threshold_otsu(sobel)
-        fudge_factor = 0.1
+        fudge_factor = 0.3 
+        
         edge_mask = sobel > (threshold * fudge_factor)
         edge_mask = (edge_mask * 255).astype(np.uint8)
 
-        # Dilate the edges
         kernel_v = cv2.getStructuringElement(cv2.MORPH_RECT, (1, 3))
         kernel_h = cv2.getStructuringElement(cv2.MORPH_RECT, (3, 1))
         dilated = cv2.dilate(edge_mask, kernel_v)
         dilated = cv2.dilate(dilated, kernel_h)
 
-        # Fill internal holes
         filled = binary_fill_holes(dilated > 0).astype(np.uint8) * 255
 
-        # Add alpha channel
-        image_rgba = cv2.cvtColor(image, cv2.COLOR_BGR2RGBA)
         image_rgba[:, :, 3] = filled 
-
         return image_rgba
 
+    if algorithm == 'edge_detection_no_fill':
+        image_gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
+        image_rgba = cv2.cvtColor(image, cv2.COLOR_BGR2RGBA)
+         
+        sobel = filters.sobel(image_gray)
+        threshold = filters.threshold_otsu(sobel)
+        fudge_factor = 0.3
+        
+        edge_mask = sobel > (threshold * fudge_factor)
+        edge_mask = (edge_mask * 255).astype(np.uint8)
+        
+        kernel_v = cv2.getStructuringElement(cv2.MORPH_RECT, (1, 3))
+        kernel_h = cv2.getStructuringElement(cv2.MORPH_RECT, (3, 1))
+        dilated = cv2.dilate(edge_mask, kernel_v)
+        dilated = cv2.dilate(dilated, kernel_h)
+         
+        image_rgba[:, :, 3] = dilated 
+        return image_rgba
+    
     print(f'Unknown algorithm {algorithm}. Supported algorithms: color_threshold, edge_detection')
     return None
 

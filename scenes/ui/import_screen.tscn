@@ -1,7 +1,11 @@
-[gd_scene load_steps=3 format=3 uid="uid://bdeiqeu762jn2"]
+[gd_scene load_steps=7 format=3 uid="uid://bdeiqeu762jn2"]
 
 [ext_resource type="Script" path="res://scripts/ui/import.gd" id="1_m5snl"]
+[ext_resource type="Texture2D" uid="uid://c5ixf4pejxt46" path="res://assets/import_button.png" id="2_h6r0q"]
 [ext_resource type="Script" path="res://scripts/ui/GenerateButton.cs" id="2_wcpue"]
+[ext_resource type="Texture2D" uid="uid://c36x6fgml2xvt" path="res://assets/import_button_hovered.png" id="3_lopp6"]
+[ext_resource type="Texture2D" uid="uid://dkysa5ca3flgf" path="res://assets/capture_button.png" id="4_7uaae"]
+[ext_resource type="Texture2D" uid="uid://brvg14nfufh6x" path="res://assets/capture_button_hovered.png" id="5_n0kpn"]
 
 [node name="ImportScreen" type="CanvasLayer"]
 
@@ -31,15 +35,25 @@ layout_mode = 2
 offset_left = 697.0
 offset_top = 300.0
 offset_right = 1081.0
-offset_bottom = 364.0
+offset_bottom = 350.0
 
-[node name="ImportButton" type="Button" parent="PlayerImportContainer"]
+[node name="ImportButton" type="TextureButton" parent="PlayerImportContainer"]
 layout_mode = 2
-offset_left = 1105.0
-offset_top = 300.0
-offset_right = 1233.0
-offset_bottom = 364.0
-text = "Import"
+offset_left = 1094.0
+offset_top = 301.0
+offset_right = 1144.0
+offset_bottom = 351.0
+texture_normal = ExtResource("2_h6r0q")
+texture_hover = ExtResource("3_lopp6")
+
+[node name="CaptureButton" type="TextureButton" parent="PlayerImportContainer"]
+layout_mode = 0
+offset_left = 1150.0
+offset_top = 301.0
+offset_right = 1200.0
+offset_bottom = 351.0
+texture_normal = ExtResource("4_7uaae")
+texture_hover = ExtResource("5_n0kpn")
 
 [node name="Label" type="Label" parent="PlayerImportContainer"]
 layout_mode = 0
@@ -71,15 +85,24 @@ layout_mode = 2
 offset_left = 697.0
 offset_top = 500.0
 offset_right = 1081.0
-offset_bottom = 564.0
+offset_bottom = 550.0
 
-[node name="ImportButton" type="Button" parent="PlatformImportContainer"]
+[node name="ImportButton" type="TextureButton" parent="PlatformImportContainer"]
 layout_mode = 2
-offset_left = 1105.0
+offset_left = 1092.0
 offset_top = 500.0
-offset_right = 1233.0
-offset_bottom = 564.0
-text = "Import"
+offset_right = 1142.0
+offset_bottom = 550.0
+texture_normal = ExtResource("2_h6r0q")
+texture_hover = ExtResource("3_lopp6")
+
+[node name="CaptureButton" type="TextureButton" parent="PlatformImportContainer"]
+offset_left = 1150.0
+offset_top = 500.0
+offset_right = 1200.0
+offset_bottom = 550.0
+texture_normal = ExtResource("4_7uaae")
+texture_hover = ExtResource("5_n0kpn")
 
 [node name="Label" type="Label" parent="PlatformImportContainer"]
 layout_mode = 0
@@ -98,7 +121,7 @@ layout_mode = 0
 offset_left = 697.0
 offset_top = 700.0
 offset_right = 1233.0
-offset_bottom = 763.0
+offset_bottom = 750.0
 item_count = 3
 popup/item_0/text = "Color Thresholding"
 popup/item_1/text = "Edge Detection"

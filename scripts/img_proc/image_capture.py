@@ -3,7 +3,6 @@ from os import sys
 
 
 video = cv.VideoCapture(0)
-
 success = False
 
 while True:
@@ -40,4 +39,4 @@ if success:
             cv.destroyAllWindows()
             break
     
-    cv.imwrite("captured_image.png", frame)
+    cv.imwrite(f'assets/{sys.argv[1]}.png', frame)

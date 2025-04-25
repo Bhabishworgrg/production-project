@@ -19,16 +19,16 @@ public partial class CaptureButton : TextureButton
 	private void OnPressed()
 	{
 		Disabled = true;
-		
-		RunPythonScript();
 
 		string parentContainer = GetParent().Name;
 		if (parentContainer == "PlayerImportContainer")
 		{
+			RunPythonScript("Player");
 			_pathField.Text = Path.Join(_basePath, "assets", "Player.png");
 		}
 		else if (parentContainer == "PlatformImportContainer")
 		{
+			RunPythonScript("Platform");
 			_pathField.Text = Path.Join(_basePath, "assets", "Platform.png");
 		}
 		else
@@ -40,7 +40,7 @@ public partial class CaptureButton : TextureButton
 	}
 
 
-	private void RunPythonScript()
+	private void RunPythonScript(string assetType)
 	{
         string pythonPath = Path.Join(_basePath, "venv", "bin", "python");
         string scriptPath = Path.Join(_basePath, "scripts", "img_proc", "image_capture.py");
@@ -50,7 +50,7 @@ public partial class CaptureButton : TextureButton
 			ProcessStartInfo start = new ProcessStartInfo
 			{
 				FileName = pythonPath,
-				Arguments = scriptPath,
+				Arguments = $"{scriptPath} {assetType}",
 				UseShellExecute = false,
 				RedirectStandardError = true,
 				CreateNoWindow = true

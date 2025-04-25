@@ -58,7 +58,7 @@ texture_normal = ExtResource("2_h6r0q")
 texture_hover = ExtResource("3_lopp6")
 texture_focused = ExtResource("3_lopp6")
 
-[node name="CaptureButton" type="TextureButton" parent="PlayerImportContainer"]
+[node name="CaptureButton" type="TextureButton" parent="PlayerImportContainer" node_paths=PackedStringArray("_pathField")]
 layout_mode = 0
 offset_left = 1150.0
 offset_top = 301.0
@@ -72,6 +72,7 @@ texture_normal = ExtResource("4_7uaae")
 texture_hover = ExtResource("5_n0kpn")
 texture_focused = ExtResource("5_n0kpn")
 script = ExtResource("6_mowdt")
+_pathField = NodePath("../PathField")
 
 [node name="Label" type="Label" parent="PlayerImportContainer"]
 layout_mode = 0
@@ -127,7 +128,8 @@ texture_normal = ExtResource("2_h6r0q")
 texture_hover = ExtResource("3_lopp6")
 texture_focused = ExtResource("3_lopp6")
 
-[node name="CaptureButton" type="TextureButton" parent="PlatformImportContainer"]
+[node name="CaptureButton" type="TextureButton" parent="PlatformImportContainer" node_paths=PackedStringArray("_pathField")]
+layout_mode = 0
 offset_left = 1150.0
 offset_top = 500.0
 offset_right = 1200.0
@@ -141,6 +143,7 @@ texture_normal = ExtResource("4_7uaae")
 texture_hover = ExtResource("5_n0kpn")
 texture_focused = ExtResource("5_n0kpn")
 script = ExtResource("6_mowdt")
+_pathField = NodePath("../PathField")
 
 [node name="Label" type="Label" parent="PlatformImportContainer"]
 layout_mode = 0

@@ -8,23 +8,42 @@ public partial class CaptureButton : TextureButton
 {
 	[Export] private LineEdit _pathField;
 
+	private string _basePath;
+
+	public override void _Ready() {
+		_basePath = Engine.IsEditorHint() 
+			? OS.GetExecutablePath().GetBaseDir() 
+			: ProjectSettings.GlobalizePath("res://");
+	}
 
 	private void OnPressed()
 	{
 		Disabled = true;
+		
 		RunPythonScript();
+
+		string parentContainer = GetParent().Name;
+		if (parentContainer == "PlayerImportContainer")
+		{
+			_pathField.Text = Path.Join(_basePath, "assets", "Player.png");
+		}
+		else if (parentContainer == "PlatformImportContainer")
+		{
+			_pathField.Text = Path.Join(_basePath, "assets", "Platform.png");
+		}
+		else
+		{
+			GD.PrintRich("[color=red]ERROR[/color]: Button doesn't have a valid owner.");
+		}
+		
 		Disabled = false;
 	}
 
 
 	private void RunPythonScript()
 	{
-		string basePath = Engine.IsEditorHint() 
-			? OS.GetExecutablePath().GetBaseDir() 
-			: ProjectSettings.GlobalizePath("res://");
-
-        string pythonPath = Path.Join(basePath, "venv", "bin", "python");
-        string scriptPath = Path.Join(basePath, "scripts", "img_proc", "image_capture.py");
+        string pythonPath = Path.Join(_basePath, "venv", "bin", "python");
+        string scriptPath = Path.Join(_basePath, "scripts", "img_proc", "image_capture.py");
 
 		try 
 		{

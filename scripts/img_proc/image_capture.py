@@ -9,32 +9,35 @@ success = False
 while True:
     success, frame = video.read()
     
-    if not success or (cv.waitKey(1) & 0xFF == 13):
+    if not success:
         break
   
     displayed_frame = frame.copy()
     cv.putText(displayed_frame, f"Press enter to click photo.", (10, 50), cv.FONT_HERSHEY_SIMPLEX, 1, (0, 255, 0), 2)
     cv.imshow("Video Feed", displayed_frame)
 
-    if cv.waitKey(1) & 0xFF == 27:
+    key = cv.waitKey(1) & 0xFF
+    if key == 27:
+        video.release()
+        cv.destroyAllWindows()
         sys.exit(0)
+    elif key == 13:
+        video.release()
+        break
 
-video.release()
-cv.destroyAllWindows()
 
 if success:
     while True:
         displayed_frame = frame.copy()
         cv.putText(displayed_frame, f"Press enter to confirm.", (10, 50), cv.FONT_HERSHEY_SIMPLEX, 1, (0, 255, 0), 2)
         cv.imshow("Captured Image", displayed_frame)
-        
-        if cv.waitKey(1) & 0xFF == 27:
+       
+        key = cv.waitKey(1) & 0xFF
+        if key == 27:
+            cv.destroyAllWindows()
             sys.exit(0)
-
-        if cv.waitKey(1) & 0xFF == 13:
+        elif key == 13:
+            cv.destroyAllWindows()
             break
     
     cv.imwrite("captured_image.png", frame)
-
-video.release()
-cv.destroyAllWindows()

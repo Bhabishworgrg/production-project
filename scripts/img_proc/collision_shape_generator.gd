@@ -9,6 +9,7 @@ func _ready() -> void:
 	var color: Color
 	var image: Image
 	var size: Vector2
+	var parent: Node = get_parent()
 
 	var assets_dir: String
 	if Engine.is_editor_hint():
@@ -16,7 +17,7 @@ func _ready() -> void:
 	else:
 		assets_dir = 'res://assets'
 	
-	if owner.is_in_group('player'):
+	if parent.is_in_group('player'):
 		image = Image.load_from_file(assets_dir.path_join('Player.png'))
 		size = image.get_size()
 		
@@ -45,7 +46,7 @@ func _ready() -> void:
 		capsule_shape.height = bottom - top
 		collision_shape.shape = capsule_shape
 
-		owner.add_child.call_deferred(collision_shape)
+		parent.add_child.call_deferred(collision_shape)
 	else:
 		image = Image.load_from_file(assets_dir.path_join('Platform.png'))
 		size = image.get_size()
@@ -74,4 +75,4 @@ func _ready() -> void:
 				collision_shape = CollisionPolygon2D.new()
 				collision_shape.polygon = hull
 				
-				owner.add_child.call_deferred(collision_shape)
+				parent.add_child.call_deferred(collision_shape)

@@ -155,3 +155,17 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 - Refactor the codebase to maintain consistency and readability.
 - Modularize image processing code.
+
+## [v0.3.1] - 2025-04-26
+
+### Added
+- Camera capture feature as a substitute for image import.
+- Color thresholding and Edge detection (without fill) algorithm.
+- Option to select image processing algorithm via UI.
+- Keyboard navigation in the import screen.
+
+### Changed
+- Normal buttons to texture buttons in the import screen.
+
+### Fixed
+- Keypress handling issues in the camera screen.

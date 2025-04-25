@@ -10,11 +10,13 @@ public partial class CaptureButton : TextureButton
 
 	private string _basePath;
 
+
 	public override void _Ready() {
 		_basePath = Engine.IsEditorHint() 
 			? OS.GetExecutablePath().GetBaseDir() 
 			: ProjectSettings.GlobalizePath("res://");
 	}
+
 
 	private void OnPressed()
 	{

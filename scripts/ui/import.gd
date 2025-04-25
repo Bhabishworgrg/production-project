@@ -1,12 +1,13 @@
 extends Control
 
 
-@export var initial_focus_control: Control
+@export
+var _initial_focus_control: Control
 
 
 func _ready() -> void:
-	if initial_focus_control:
-		initial_focus_control.grab_focus()
+	if _initial_focus_control:
+		_initial_focus_control.grab_focus()
 
 
 func _on_button_pressed() -> void:

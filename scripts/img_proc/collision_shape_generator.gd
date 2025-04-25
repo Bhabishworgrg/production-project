@@ -2,14 +2,15 @@ extends Node
 
 
 @export
-var _segment_count: int = 50
+var _segment_count: int
+var _pixel_color: Color
+var _image: Image
+var _size: Vector2
+var _parent: Node
 
 
 func _ready() -> void:
-	var color: Color
-	var image: Image
-	var size: Vector2
-	var parent: Node = get_parent()
+	_parent = get_parent()
 
 	var assets_dir: String
 	if Engine.is_editor_hint():
@@ -17,19 +18,19 @@ func _ready() -> void:
 	else:
 		assets_dir = 'res://assets'
 	
-	if parent.is_in_group('player'):
-		image = Image.load_from_file(assets_dir.path_join('Player.png'))
-		size = image.get_size()
+	if _parent.is_in_group('player'):
+		_image = Image.load_from_file(assets_dir.path_join('Player.png'))
+		_size = _image.get_size()
 		
-		var left: float = size.x
+		var left: float = _size.x
 		var right: float = 0
-		var top: float = size.y
+		var top: float = _size.y
 		var bottom: float = 0
 
-		for x in range(size.x):
-			for y in range(size.y):
-				color = image.get_pixel(x, y)
-				if color.a > 0.1:
+		for x in range(_size.x):
+			for y in range(_size.y):
+				_pixel_color = _image.get_pixel(x, y)
+				if _pixel_color.a > 0.1:
 					if x < left:
 						left = x
 					if x > right:
@@ -46,13 +47,13 @@ func _ready() -> void:
 		capsule_shape.height = bottom - top
 		collision_shape.shape = capsule_shape
 
-		parent.add_child.call_deferred(collision_shape)
+		_parent.add_child.call_deferred(collision_shape)
 	else:
-		image = Image.load_from_file(assets_dir.path_join('Platform.png'))
-		size = image.get_size()
+		_image = Image.load_from_file(assets_dir.path_join('Platform.png'))
+		_size = _image.get_size()
 		
-		var x_segment: int = int(size.x / _segment_count)
-		var y_segment: int = int(size.y / _segment_count)
+		var x_segment: int = int(_size.x / _segment_count)
+		var y_segment: int = int(_size.y / _segment_count)
 		var collision_shape: CollisionPolygon2D
 		
 		for i in range(_segment_count):
@@ -66,8 +67,8 @@ func _ready() -> void:
 
 				for x in range(x_start, x_end):
 					for y in range(y_start, y_end):
-						color = image.get_pixel(x, y)
-						if color.a > 0.1:
+						_pixel_color = _image.get_pixel(x, y)
+						if _pixel_color.a > 0.1:
 							points.append(Vector2(x, y))
 
 				var hull: PackedVector2Array = Geometry2D.convex_hull(points)
@@ -75,4 +76,4 @@ func _ready() -> void:
 				collision_shape = CollisionPolygon2D.new()
 				collision_shape.polygon = hull
 				
-				parent.add_child.call_deferred(collision_shape)
+				_parent.add_child.call_deferred(collision_shape)

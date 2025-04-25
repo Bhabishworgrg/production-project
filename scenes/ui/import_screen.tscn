@@ -15,13 +15,13 @@ offset_right = 1920.0
 offset_bottom = 1080.0
 color = Color(0, 0, 0, 1)
 
-[node name="PlayerImportContainer" type="Control" parent="." node_paths=PackedStringArray("initial_focus_control")]
+[node name="PlayerImportContainer" type="Control" parent="." node_paths=PackedStringArray("_initial_focus_control")]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 script = ExtResource("1_m5snl")
-initial_focus_control = NodePath("PathField")
+_initial_focus_control = NodePath("PathField")
 
 [node name="FileDialog" type="FileDialog" parent="PlayerImportContainer"]
 title = "Import Sprite"

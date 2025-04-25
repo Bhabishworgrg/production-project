@@ -135,3 +135,37 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Fixed
 - Image processing output path issue.
+
+## [v0.3.0-beta.1] - 2025-04-14
+
+### Added
+- Logging and error checks for image processing.
+
+### Changed
+- Optimized Python subprocess calls and refactoring.
+
+### Removed
+- Image processing previews.
+
+### Fixed
+- Inoperative error log on process start failure.
+
+## [v0.3.0] - 2025-04-17
+
+### Changed
+- Refactor the codebase to maintain consistency and readability.
+- Modularize image processing code.
+
+## [v0.3.1] - 2025-04-26
+
+### Added
+- Camera capture feature as a substitute for image import.
+- Color thresholding and Edge detection (without fill) algorithm.
+- Option to select image processing algorithm via UI.
+- Keyboard navigation in the import screen.
+
+### Changed
+- Normal buttons to texture buttons in the import screen.
+
+### Fixed
+- Keypress handling issues in the camera screen.

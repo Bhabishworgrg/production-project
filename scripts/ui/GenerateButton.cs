@@ -6,19 +6,20 @@ using System.IO;
 
 public partial class GenerateButton : Button
 {
-	[Export] private LineEdit playerPathField;
-	[Export] private LineEdit platformPathField;
+	[Export] private LineEdit _playerPathField;
+	[Export] private LineEdit _platformPathField;
+	[Export] private OptionButton _algorithmOption;
 	
-	private string pythonPath;
-	private string scriptPath;
-	
-	private const string GAME_SCENE = "res://scenes/game.tscn";
+	private string _pythonPath;
+	private string _scriptPath;
+
+	private const string _GameScene = "res://scenes/game.tscn";
 
 
-	private void _OnPressed()
+	private void OnPressed()
 	{
 		RunPythonScript();
-		GetTree().CallDeferred(SceneTree.MethodName.ChangeSceneToFile, GAME_SCENE);
+		GetTree().CallDeferred(SceneTree.MethodName.ChangeSceneToFile, _GameScene);
 	}
 
 
@@ -28,22 +29,36 @@ public partial class GenerateButton : Button
 			? OS.GetExecutablePath().GetBaseDir() 
 			: ProjectSettings.GlobalizePath("res://");
 
-        pythonPath = Path.Join(basePath, "venv", "bin", "python");
-        scriptPath = Path.Join(basePath, "scripts", "img_proc", "image_processor.py");
-		
-		RunImageProcessor(platformPathField.Text, "Platform");
-		RunImageProcessor(playerPathField.Text, "Player");
+        _pythonPath = Path.Join(basePath, "venv", "bin", "python");
+        _scriptPath = Path.Join(basePath, "scripts", "img_proc", "image_processor.py");
+
+		string algorithm = string.Empty;
+		if (_algorithmOption.GetSelectedId() == 0)
+		{
+			algorithm = "color_threshold";
+		}
+		else if (_algorithmOption.GetSelectedId() == 1)
+		{
+			algorithm = "edge_detection";
+		}
+		else if (_algorithmOption.GetSelectedId() == 2)
+		{
+			algorithm = "edge_detection_no_fill";
+		}
+
+		RunImageProcessor(_platformPathField.Text, "Platform", algorithm);
+		RunImageProcessor(_playerPathField.Text, "Player", algorithm);
 	}
 
 
-	private void RunImageProcessor(string assetPath, string assetType)
+	private void RunImageProcessor(string assetPath, string assetType, string algorithm="color_threshold")
 	{
 		try 
 		{
 			ProcessStartInfo start = new ProcessStartInfo
 			{
-				FileName = pythonPath,
-				Arguments = $"{scriptPath} {assetPath} {assetType}",
+				FileName = _pythonPath,
+				Arguments = $"{_scriptPath} {assetPath} {assetType} {algorithm}",
 				UseShellExecute = false,
 				RedirectStandardError = true,
 				CreateNoWindow = true

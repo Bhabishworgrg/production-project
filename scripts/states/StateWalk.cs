@@ -3,7 +3,7 @@ using Godot;
 
 public partial class StateWalk : State
 {
-	private float SPEED;
+	private float _speed;
 
 
 	public override void Enter()
@@ -11,9 +11,9 @@ public partial class StateWalk : State
 		_character = GetOwner<CharacterBody2D>();
 		_stateMachine = GetParent<Node>();
 
-		SPEED = (float)_character.Get("SPEED");
+		_speed = (float)_character.Get("speed");
 
-		if (_character == null || _stateMachine == null || SPEED == 0)
+		if (_character == null || _stateMachine == null || _speed == 0)
 		{
 			GD.PrintRich("[color=red]ERROR[/color]: Walk state not properly initialized.");
 		}
@@ -44,7 +44,7 @@ public partial class StateWalk : State
 		}
 		else
 		{
-			_character.Velocity = new Vector2(direction * SPEED, _character.Velocity.Y);
+			_character.Velocity = new Vector2(direction * _speed, _character.Velocity.Y);
 		}
 	}
 

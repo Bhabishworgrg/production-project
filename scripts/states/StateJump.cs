@@ -3,7 +3,7 @@ using Godot;
 
 public partial class StateJump : State 
 {
-	private float SPEED;
+	private float _speed;
 
 
 	public override void Enter()
@@ -11,15 +11,15 @@ public partial class StateJump : State
 		_character = GetOwner<CharacterBody2D>();
 		_stateMachine = GetParent<Node>();
 
-		SPEED = (float)_character.Get("SPEED");
+		_speed = (float)_character.Get("speed");
 
-		if (_character == null || _stateMachine == null || SPEED == 0)
+		if (_character == null || _stateMachine == null || _speed == 0)
 		{
 			GD.PrintRich("[color=red]ERROR[/color]: Jump state not properly initialized.");
 		}
 
-		float JUMP_VELOCITY = (float)_character.Get("JUMP_VELOCITY");
-		_character.Velocity = new Vector2(_character.Velocity.X, JUMP_VELOCITY);
+		float jump_velocity = (float)_character.Get("jump_velocity");
+		_character.Velocity = new Vector2(_character.Velocity.X, jump_velocity);
 	}
 
 
@@ -28,7 +28,7 @@ public partial class StateJump : State
         float direction = Input.GetAxis("left", "right");
         if (direction != 0)
         {
-            _character.Velocity = new Vector2(direction * SPEED, _character.Velocity.Y);
+            _character.Velocity = new Vector2(direction * _speed, _character.Velocity.Y);
         }
 	}
 

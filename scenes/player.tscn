@@ -12,7 +12,6 @@
 
 [node name="Player" type="CharacterBody2D" groups=["player"]]
 script = ExtResource("1_duirn")
-jump_velocity = -700.0
 
 [node name="StateMachine" parent="." node_paths=PackedStringArray("_state") instance=ExtResource("3_ag3f3")]
 _state = NodePath("StateIdle")

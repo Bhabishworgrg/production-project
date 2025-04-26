@@ -35,7 +35,7 @@ class ImageProcessor:
         
             lower_white = np.array([200, 200, 200, 0])
             upper_white = np.array([255, 255, 255, 255])
-            mask = cv.inRange(self.image_rgba, lower_white, upper_white)
+            mask = cv.inRange(image_rgba, lower_white, upper_white)
 
             image_rgba[:, :, 3] = np.where(mask == 255, 0, image_rgba[:, :, 3])
             return image_rgba

@@ -61,20 +61,29 @@ public partial class GenerateButton : Button
 				Arguments = $"{_scriptPath} {assetPath} {assetType} {algorithm}",
 				UseShellExecute = false,
 				RedirectStandardError = true,
+				RedirectStandardOutput = true,
 				CreateNoWindow = true
 			};
 		
 			using Process process = Process.Start(start);
-			using StreamReader errorReader = process.StandardError;
 
-			string error = errorReader.ReadToEnd();
+			process.OutputDataReceived += (s, e) => {
+				if (string.IsNullOrEmpty(e.Data)) return;
+				if (e.Data.StartsWith("Image saved"))
+					GD.PrintRich($"[color=green]SUCCESS[/color]: {e.Data}");
+				else
+					GD.Print($"INFO: {e.Data}");
+			};
+
+			process.ErrorDataReceived += (s, e) => {
+				if (!string.IsNullOrEmpty(e.Data))
+					GD.PrintRich($"[color=red]ERROR[/color]: {e.Data}");
+			};
+
+			process.BeginOutputReadLine();
+			process.BeginErrorReadLine();
 
 			process.WaitForExit();
-
-			if (!string.IsNullOrEmpty(error))
-			{
-				GD.PrintRich($"[color=red]ERROR[/color]: {error}");
-			}
 		}
 		catch (Exception error)
 		{

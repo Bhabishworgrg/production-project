@@ -55,19 +55,48 @@ public partial class CaptureButton : TextureButton
 				Arguments = $"{scriptPath} {assetType}",
 				UseShellExecute = false,
 				RedirectStandardError = true,
+				RedirectStandardOutput = true,
 				CreateNoWindow = true
 			};
 		
 			using Process process = Process.Start(start);
 			using StreamReader errorReader = process.StandardError;
+			using StreamReader outputReader = process.StandardOutput;
 
 			string error = errorReader.ReadToEnd();
+			string output = outputReader.ReadToEnd();
 
 			process.WaitForExit();
 
 			if (!string.IsNullOrEmpty(error))
 			{
-				GD.PrintRich($"[color=red]ERROR[/color]: {error}");
+				using var reader = new System.IO.StringReader(error);
+				string line;
+				while ((line = reader.ReadLine()) != null)
+				{
+					if (line.Length > 0)
+						GD.PrintRich($"[color=red]ERROR[/color]: {line}");
+				}
+			}
+
+			if (!string.IsNullOrEmpty(output))
+			{
+				using var reader = new System.IO.StringReader(output);
+				string line;
+				while ((line = reader.ReadLine()) != null)
+				{
+					if (line.Length > 0)
+					{
+						if (line.StartsWith("Image saved"))
+						{
+							GD.PrintRich($"[color=green]SUCCESS[/color]: {line}");
+						}
+						else
+						{
+							GD.Print($"INFO: {line}");
+						}	
+					}
+				}
 			}
 		}
 		catch (Exception error)

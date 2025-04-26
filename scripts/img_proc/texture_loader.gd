@@ -1,5 +1,7 @@
 extends Node
 
+class_name TextureLoader 
+
 
 var _parent: Node
 var _image: Image

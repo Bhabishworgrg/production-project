@@ -1,5 +1,7 @@
 extends Node
 
+class_name StateMachine
+
 
 @warning_ignore('unused_signal')
 signal state_changed(new_state: String)

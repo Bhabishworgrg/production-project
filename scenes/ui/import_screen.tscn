@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://bdeiqeu762jn2"]
 
-[ext_resource type="Script" path="res://scripts/ui/import.gd" id="1_m5snl"]
+[ext_resource type="Script" path="res://scripts/ui/file_importer.gd" id="1_m5snl"]
 [ext_resource type="Texture2D" uid="uid://c5ixf4pejxt46" path="res://assets/import_button.png" id="2_h6r0q"]
 [ext_resource type="Script" path="res://scripts/ui/GenerateButton.cs" id="2_wcpue"]
 [ext_resource type="Texture2D" uid="uid://c36x6fgml2xvt" path="res://assets/import_button_hovered.png" id="3_lopp6"]

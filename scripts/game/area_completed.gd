@@ -1,5 +1,7 @@
 extends Area2D
 
+class_name AreaCompleted
+
 
 const _LEVEL_COMPLETE_SCENE: String = 'res://scenes/ui/complete_ui.tscn'
 

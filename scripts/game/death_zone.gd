@@ -1,5 +1,7 @@
 extends Area2D
 
+class_name DeathZone
+
 
 const _DEATH_SCENE: Resource = preload('res://scenes/ui/death_screen.tscn')
 

@@ -1,5 +1,7 @@
 extends Control
 
+class_name FileImporter
+
 
 @export
 var _initial_focus_control: Control

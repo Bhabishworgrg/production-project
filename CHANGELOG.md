@@ -175,3 +175,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 - Redefine instance variables.
 - Turn all scripts to modular classes.
+
+## [v0.4.0-alpha.2] - 2025-04-26
+
+### Added
+- Standard output logging of python subprocess calls.
+
+### Fixed
+- Color thresholding algorithm.
+- Path field filling on exiting the camera feed.

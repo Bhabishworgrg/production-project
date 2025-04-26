@@ -23,8 +23,9 @@ class ImageCapture:
         cv.destroyAllWindows()
         
         if error:
-            raise RuntimeError('An error occurred during image capture.')
+            raise RuntimeError('Image capture failed.')
         if exit:
+            print('Exiting camera feed...')
             sys.exit(0)
 
 

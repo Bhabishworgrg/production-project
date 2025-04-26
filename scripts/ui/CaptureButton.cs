@@ -26,12 +26,10 @@ public partial class CaptureButton : TextureButton
 		if (parentContainer == "PlayerImportContainer")
 		{
 			RunPythonScript("Player");
-			_pathField.Text = Path.Join(_basePath, "assets", "Player.png");
 		}
 		else if (parentContainer == "PlatformImportContainer")
 		{
 			RunPythonScript("Platform");
-			_pathField.Text = Path.Join(_basePath, "assets", "Platform.png");
 		}
 		else
 		{
@@ -94,7 +92,12 @@ public partial class CaptureButton : TextureButton
 						else
 						{
 							GD.Print($"INFO: {line}");
-						}	
+						}
+
+						if (!line.Equals("Exiting camera feed..."))
+						{
+							_pathField.Text = Path.Join(_basePath, "assets", $"{assetType}.png");
+						}
 					}
 				}
 			}

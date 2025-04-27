@@ -107,6 +107,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 - Player collision shape's size datatype to float for better precision.
 - Improved sobel edge detection algorithm.
+<<<<<<< Updated upstream
+=======
+<<<<<<< Updated upstream
+=======
+>>>>>>> Stashed changes
 
 ## [v0.2.0] - 2025-04-10
 
@@ -184,3 +189,17 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Fixed
 - Color thresholding algorithm.
 - Path field filling on exiting the camera feed.
+
+## [v0.4.0-alpha.3] - 2025-04-27
+
+### Added
+- Editor screen with toolbar and viewport.
+- Drag-and-drop functionality for player in the editor.
+- Main menu with load, create, play demo and exit options.
+
+### Changed
+- Window mode to unresizable windowed.
+- Main menu to be the first screen.
+
+### Fixed
+- Loading image file warning.

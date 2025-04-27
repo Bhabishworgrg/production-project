@@ -11,7 +11,8 @@ config_version=5
 [application]
 
 config/name="production-project"
-run/main_scene="res://scenes/game.tscn"
+run/main_scene="res://scenes/ui/main_menu.tscn"
+run/disable_stderr=true
 config/features=PackedStringArray("4.3", "C#", "Forward Plus")
 
 [display]

@@ -1,16 +1,21 @@
-extends Node 
+extends Node
 
 
 var draggable: bool
 var parent: CollisionObject2D 
+var viewport: AspectRatioContainer 
 
 
 func _ready() -> void:
 	draggable = false
 	parent = get_parent()
+	viewport = parent.get_parent()
 
 	parent.mouse_entered.connect(_on_mouse_entered)
 	parent.mouse_exited.connect(_on_mouse_exited)
+		
+	parent.mouse_entered.connect(viewport._on_draggable_mouse_entered)
+	parent.mouse_exited.connect(viewport._on_draggable_mouse_exited)
 
 
 func _process(delta: float) -> void:

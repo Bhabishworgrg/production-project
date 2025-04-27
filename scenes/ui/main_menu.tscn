@@ -87,3 +87,4 @@ cancel_button_text = "No"
 [connection signal="pressed" from="CreateButton" to="." method="_on_create_button_pressed"]
 [connection signal="pressed" from="DemoButton" to="." method="_on_demo_button_pressed"]
 [connection signal="pressed" from="ExitContainer/ExitButton" to="." method="_on_exit_button_pressed"]
+[connection signal="confirmed" from="ExitContainer/ConfirmationDialog" to="." method="_on_exit_dialog_confirmed"]

@@ -23,3 +23,7 @@ func _on_demo_button_pressed() -> void:
 
 func _on_exit_button_pressed() -> void:
 	$ExitContainer/ConfirmationDialog.show()	
+
+
+func _on_exit_dialog_confirmed() -> void:
+	get_tree().quit()

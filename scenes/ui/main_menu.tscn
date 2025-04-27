@@ -1,0 +1,60 @@
+[gd_scene load_steps=2 format=3 uid="uid://l6v4t3aen6yn"]
+
+[ext_resource type="Script" path="res://scripts/ui/main_menu.gd" id="1_1v84i"]
+
+[node name="MainMenu" type="CanvasLayer"]
+script = ExtResource("1_1v84i")
+
+[node name="TextureRect" type="ColorRect" parent="."]
+offset_right = 1920.0
+offset_bottom = 1080.0
+color = Color(0, 0, 0, 1)
+
+[node name="LoadButton" type="Button" parent="."]
+offset_left = 822.0
+offset_top = 351.0
+offset_right = 1099.0
+offset_bottom = 411.0
+focus_neighbor_bottom = NodePath("../CreateButton")
+focus_next = NodePath("../CreateButton")
+theme_override_font_sizes/font_size = 27
+text = "Load Level"
+
+[node name="CreateButton" type="Button" parent="."]
+offset_left = 822.0
+offset_top = 451.0
+offset_right = 1099.0
+offset_bottom = 511.0
+focus_neighbor_top = NodePath("../LoadButton")
+focus_neighbor_bottom = NodePath("../DemoButton")
+focus_next = NodePath("../DemoButton")
+focus_previous = NodePath("../LoadButton")
+theme_override_font_sizes/font_size = 27
+text = "Create Level"
+
+[node name="DemoButton" type="Button" parent="."]
+offset_left = 822.0
+offset_top = 551.0
+offset_right = 1099.0
+offset_bottom = 611.0
+focus_neighbor_top = NodePath("../CreateButton")
+focus_neighbor_bottom = NodePath("../ExitButton")
+focus_next = NodePath("../ExitButton")
+focus_previous = NodePath("../CreateButton")
+theme_override_font_sizes/font_size = 27
+text = "Play Demo"
+
+[node name="ExitButton" type="Button" parent="."]
+offset_left = 822.0
+offset_top = 651.0
+offset_right = 1099.0
+offset_bottom = 711.0
+focus_neighbor_top = NodePath("../DemoButton")
+focus_previous = NodePath("../DemoButton")
+theme_override_font_sizes/font_size = 27
+text = "Exit"
+
+[connection signal="pressed" from="LoadButton" to="." method="_on_load_button_pressed"]
+[connection signal="pressed" from="CreateButton" to="." method="_on_create_button_pressed"]
+[connection signal="pressed" from="DemoButton" to="." method="_on_demo_button_pressed"]
+[connection signal="pressed" from="ExitButton" to="." method="_on_exit_button_pressed"]

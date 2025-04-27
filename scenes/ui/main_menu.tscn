@@ -10,25 +10,40 @@ offset_right = 1920.0
 offset_bottom = 1080.0
 color = Color(0, 0, 0, 1)
 
-[node name="LoadButton" type="Button" parent="."]
+[node name="LoadContainer" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="LoadButton" type="Button" parent="LoadContainer"]
 offset_left = 822.0
 offset_top = 351.0
 offset_right = 1099.0
 offset_bottom = 411.0
-focus_neighbor_bottom = NodePath("../CreateButton")
-focus_next = NodePath("../CreateButton")
+focus_neighbor_bottom = NodePath("../../CreateButton")
+focus_next = NodePath("../../CreateButton")
 theme_override_font_sizes/font_size = 27
 text = "Load Level"
+
+[node name="FileDialog" type="FileDialog" parent="LoadContainer"]
+title = "Load a Level"
+initial_position = 1
+size = Vector2i(800, 600)
+ok_button_text = "Load"
+mode_overrides_title = false
+file_mode = 0
+access = 2
 
 [node name="CreateButton" type="Button" parent="."]
 offset_left = 822.0
 offset_top = 451.0
 offset_right = 1099.0
 offset_bottom = 511.0
-focus_neighbor_top = NodePath("../LoadButton")
+focus_neighbor_top = NodePath("../LoadContainer/LoadButton")
 focus_neighbor_bottom = NodePath("../DemoButton")
 focus_next = NodePath("../DemoButton")
-focus_previous = NodePath("../LoadButton")
+focus_previous = NodePath("../LoadContainer/LoadButton")
 theme_override_font_sizes/font_size = 27
 text = "Create Level"
 
@@ -38,23 +53,37 @@ offset_top = 551.0
 offset_right = 1099.0
 offset_bottom = 611.0
 focus_neighbor_top = NodePath("../CreateButton")
-focus_neighbor_bottom = NodePath("../ExitButton")
-focus_next = NodePath("../ExitButton")
+focus_neighbor_bottom = NodePath("../ExitContainer/ExitButton")
+focus_next = NodePath("../ExitContainer/ExitButton")
 focus_previous = NodePath("../CreateButton")
 theme_override_font_sizes/font_size = 27
 text = "Play Demo"
 
-[node name="ExitButton" type="Button" parent="."]
+[node name="ExitContainer" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="ExitButton" type="Button" parent="ExitContainer"]
 offset_left = 822.0
 offset_top = 651.0
 offset_right = 1099.0
 offset_bottom = 711.0
-focus_neighbor_top = NodePath("../DemoButton")
-focus_previous = NodePath("../DemoButton")
+focus_neighbor_top = NodePath("../../DemoButton")
+focus_previous = NodePath("../../DemoButton")
 theme_override_font_sizes/font_size = 27
 text = "Exit"
 
-[connection signal="pressed" from="LoadButton" to="." method="_on_load_button_pressed"]
+[node name="ConfirmationDialog" type="ConfirmationDialog" parent="ExitContainer"]
+title = "Confirm Exit"
+initial_position = 1
+size = Vector2i(250, 100)
+ok_button_text = "Yes"
+dialog_text = "Are you sure you want to exit?"
+cancel_button_text = "No"
+
+[connection signal="pressed" from="LoadContainer/LoadButton" to="." method="_on_load_button_pressed"]
 [connection signal="pressed" from="CreateButton" to="." method="_on_create_button_pressed"]
 [connection signal="pressed" from="DemoButton" to="." method="_on_demo_button_pressed"]
-[connection signal="pressed" from="ExitButton" to="." method="_on_exit_button_pressed"]
+[connection signal="pressed" from="ExitContainer/ExitButton" to="." method="_on_exit_button_pressed"]

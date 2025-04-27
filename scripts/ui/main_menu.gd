@@ -6,11 +6,11 @@ const _DEMO_SCENE: String = 'res://scenes/demo.tscn'
 
 
 func _ready() -> void:
-	$LoadButton.grab_focus()
+	$LoadContainer/LoadButton.grab_focus()
 
 
 func _on_load_button_pressed() -> void:
-	pass
+	$LoadContainer/FileDialog.show()	
 
 
 func _on_create_button_pressed() -> void:
@@ -22,4 +22,4 @@ func _on_demo_button_pressed() -> void:
 
 
 func _on_exit_button_pressed() -> void:
-	pass
+	$ExitContainer/ConfirmationDialog.show()	

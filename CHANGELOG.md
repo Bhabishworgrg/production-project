@@ -203,3 +203,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Fixed
 - Loading image file warning.
+
+## [v0.4.0-alpha.4] - 2025-04-28
+
+### Added
+- Area completed draggable object.
+- Viewport camera movement with mouse.
+
+### Changed
+- Generate button to navigate to the editor screen.
+- Player's draggable functionality to a separate component.

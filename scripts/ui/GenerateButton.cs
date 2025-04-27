@@ -13,13 +13,13 @@ public partial class GenerateButton : Button
 	private string _pythonPath;
 	private string _scriptPath;
 
-	private const string _GameScene = "res://scenes/game.tscn";
+	private const string _EditorScene = "res://scenes/editor.tscn";
 
 
 	private void OnPressed()
 	{
 		RunPythonScript();
-		GetTree().CallDeferred(SceneTree.MethodName.ChangeSceneToFile, _GameScene);
+		GetTree().CallDeferred(SceneTree.MethodName.ChangeSceneToFile, _EditorScene);
 	}
 
 

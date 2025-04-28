@@ -15,6 +15,10 @@ run/main_scene="res://scenes/ui/main_menu.tscn"
 run/disable_stderr=true
 config/features=PackedStringArray("4.3", "C#", "Forward Plus")
 
+[autoload]
+
+GlobalState="*res://scripts/global_state.gd"
+
 [display]
 
 window/size/viewport_width=1920

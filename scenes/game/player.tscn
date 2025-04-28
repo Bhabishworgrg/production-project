@@ -7,8 +7,8 @@
 [ext_resource type="PackedScene" uid="uid://d26mvdsx2tn41" path="res://scenes/states/state_jump.tscn" id="6_i0w5v"]
 [ext_resource type="PackedScene" uid="uid://dnut3y3ikm3rw" path="res://scenes/states/state_land.tscn" id="7_gluaf"]
 [ext_resource type="PackedScene" uid="uid://dc8e68547kn21" path="res://scenes/states/state_walk.tscn" id="8_mucvw"]
-[ext_resource type="PackedScene" uid="uid://bh7xpupuq8erj" path="res://scenes/texture_loader.tscn" id="8_yvtnv"]
-[ext_resource type="PackedScene" uid="uid://b5pf05mkglflu" path="res://scenes/collision_shape_generator.tscn" id="9_2ed4v"]
+[ext_resource type="PackedScene" uid="uid://bh7xpupuq8erj" path="res://scenes/sprite_integration/texture_loader.tscn" id="8_yvtnv"]
+[ext_resource type="PackedScene" uid="uid://b5pf05mkglflu" path="res://scenes/sprite_integration/collision_shape_generator.tscn" id="9_2ed4v"]
 
 [node name="Player" type="CharacterBody2D" groups=["player"]]
 script = ExtResource("1_duirn")

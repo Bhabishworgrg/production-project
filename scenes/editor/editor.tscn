@@ -1,0 +1,98 @@
+[gd_scene load_steps=11 format=3 uid="uid://cuxs266vx45bv"]
+
+[ext_resource type="PackedScene" uid="uid://b5pf05mkglflu" path="res://scenes/sprite_integration/collision_shape_generator.tscn" id="1_gn8k4"]
+[ext_resource type="PackedScene" uid="uid://bh7xpupuq8erj" path="res://scenes/sprite_integration/texture_loader.tscn" id="2_i51o4"]
+[ext_resource type="Texture2D" uid="uid://cj63em73a8eu1" path="res://assets/back_button.png" id="4_mle5y"]
+[ext_resource type="Texture2D" uid="uid://b8r66nirbfcxa" path="res://assets/back_button_hovered.png" id="5_biyjb"]
+[ext_resource type="Texture2D" uid="uid://tmmaoopf84xe" path="res://assets/play_button.png" id="6_4carm"]
+[ext_resource type="Texture2D" uid="uid://dgp844sit8j1l" path="res://assets/save_button.png" id="6_vbsrd"]
+[ext_resource type="Script" path="res://scripts/editor/viewport.gd" id="7_1rru7"]
+[ext_resource type="Texture2D" uid="uid://pybj1wrmiwpg" path="res://assets/play_button_hovered.png" id="7_k62e5"]
+[ext_resource type="Texture2D" uid="uid://delkjg8x11wyh" path="res://assets/save_button_hovered.png" id="7_kbrf7"]
+[ext_resource type="PackedScene" uid="uid://s21edsisqeqf" path="res://scenes/editor/draggable_component.tscn" id="9_0k5oo"]
+
+[node name="Editor" type="Node2D"]
+
+[node name="Toolbar" type="CanvasLayer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="Toolbar"]
+offset_right = 1920.0
+offset_bottom = 90.0
+color = Color(0, 0, 0, 1)
+
+[node name="BackButton" type="TextureButton" parent="Toolbar"]
+offset_left = 20.0
+offset_top = 20.0
+offset_right = 70.0
+offset_bottom = 70.0
+texture_normal = ExtResource("4_mle5y")
+texture_hover = ExtResource("5_biyjb")
+texture_focused = ExtResource("5_biyjb")
+
+[node name="FileName" type="Label" parent="Toolbar"]
+offset_left = 888.0
+offset_top = 30.0
+offset_right = 1001.0
+offset_bottom = 60.0
+theme_override_font_sizes/font_size = 21
+text = "Unsaved(*)"
+
+[node name="SaveButton" type="TextureButton" parent="Toolbar"]
+offset_left = 1775.0
+offset_top = 20.0
+offset_right = 1825.0
+offset_bottom = 70.0
+texture_normal = ExtResource("6_vbsrd")
+texture_hover = ExtResource("7_kbrf7")
+texture_focused = ExtResource("7_kbrf7")
+
+[node name="PlayButton" type="TextureButton" parent="Toolbar"]
+offset_left = 1850.0
+offset_top = 20.0
+offset_right = 1900.0
+offset_bottom = 70.0
+texture_normal = ExtResource("6_4carm")
+texture_hover = ExtResource("7_k62e5")
+texture_focused = ExtResource("7_k62e5")
+
+[node name="Viewport" type="AspectRatioContainer" parent="."]
+offset_top = 90.0
+offset_bottom = 90.0
+script = ExtResource("7_1rru7")
+
+[node name="Player" type="Area2D" parent="Viewport" groups=["player"]]
+
+[node name="TextureLoader" parent="Viewport/Player" instance=ExtResource("2_i51o4")]
+
+[node name="CollisionShapeGenerator" parent="Viewport/Player" instance=ExtResource("1_gn8k4")]
+
+[node name="DraggableComponent" parent="Viewport/Player" instance=ExtResource("9_0k5oo")]
+
+[node name="Platform" type="Area2D" parent="Viewport"]
+
+[node name="TextureLoader" parent="Viewport/Platform" instance=ExtResource("2_i51o4")]
+
+[node name="CollisionShapeGenerator" parent="Viewport/Platform" instance=ExtResource("1_gn8k4")]
+_segment_count = 100
+
+[node name="AreaCompleted" type="Area2D" parent="Viewport"]
+position = Vector2(1970, 540)
+
+[node name="ColorRect" type="ColorRect" parent="Viewport/AreaCompleted"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -50.0
+offset_top = -540.0
+offset_right = 50.0
+offset_bottom = 540.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0.606321, 0.606321, 1)
+
+[node name="DraggableComponent" parent="Viewport/AreaCompleted" instance=ExtResource("9_0k5oo")]
+
+[node name="Camera2D" type="Camera2D" parent="Viewport"]
+position = Vector2(960, 540)

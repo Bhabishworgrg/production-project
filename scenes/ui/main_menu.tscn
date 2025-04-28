@@ -1,4 +1,4 @@
-[gd_scene load_steps=2 format=3 uid="uid://l6v4t3aen6yn"]
+[gd_scene load_steps=2 format=3 uid="uid://cfgrci46v6gk4"]
 
 [ext_resource type="Script" path="res://scripts/ui/main_menu.gd" id="1_1v84i"]
 
@@ -31,7 +31,7 @@ text = "Load Level"
 title = "Load a Level"
 initial_position = 1
 size = Vector2i(800, 600)
-ok_button_text = "Load"
+ok_button_text = "Open"
 mode_overrides_title = false
 file_mode = 0
 access = 2

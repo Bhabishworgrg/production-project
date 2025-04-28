@@ -1,7 +1,9 @@
-[gd_scene load_steps=13 format=3 uid="uid://cs77rcpj453gv"]
+[gd_scene load_steps=15 format=3 uid="uid://cs77rcpj453gv"]
 
 [ext_resource type="PackedScene" uid="uid://b5pf05mkglflu" path="res://scenes/sprite_integration/collision_shape_generator.tscn" id="1_gn8k4"]
 [ext_resource type="PackedScene" uid="uid://bh7xpupuq8erj" path="res://scenes/sprite_integration/texture_loader.tscn" id="2_i51o4"]
+[ext_resource type="Texture2D" uid="uid://5x5d0yfqs5xu" path="res://assets/config_button.png" id="3_gii3u"]
+[ext_resource type="Texture2D" uid="uid://c8n1762yhs611" path="res://assets/config_button_hovered.png" id="4_6i0qb"]
 [ext_resource type="Texture2D" uid="uid://cj63em73a8eu1" path="res://assets/back_button.png" id="4_mle5y"]
 [ext_resource type="Texture2D" uid="uid://b8r66nirbfcxa" path="res://assets/back_button_hovered.png" id="5_biyjb"]
 [ext_resource type="Texture2D" uid="uid://tmmaoopf84xe" path="res://assets/play_button.png" id="6_4carm"]
@@ -43,6 +45,15 @@ offset_right = 1001.0
 offset_bottom = 60.0
 theme_override_font_sizes/font_size = 21
 text = "Unsaved(*)"
+
+[node name="ConfigButton" type="TextureButton" parent="Toolbar"]
+offset_left = 1700.0
+offset_top = 20.0
+offset_right = 1750.0
+offset_bottom = 70.0
+texture_normal = ExtResource("3_gii3u")
+texture_hover = ExtResource("4_6i0qb")
+texture_focused = ExtResource("4_6i0qb")
 
 [node name="SaveButton" type="TextureButton" parent="Toolbar"]
 offset_left = 1775.0

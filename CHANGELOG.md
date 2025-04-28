@@ -220,3 +220,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Warnings for unused variables and different variable types.
 - Viewport camera movement to be smoother.
 - Viewport camera movement issues when dragging the player.
+
+# [v0.4.0] - 2025-04-28
+
+### Fixed
+- Player disappearing behind platform and area completion object.
+- Area completion object not being draggable.

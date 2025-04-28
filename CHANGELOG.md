@@ -208,3 +208,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 - Generate button to navigate to the editor screen.
 - Player's draggable functionality to a separate component.
+
+## [v0.4.0-beta.1] - 2025-04-28
+
+### Changed
+- New scripts to modular classes.
+- Project structure to be more organized.
+
+### Fixed
+- Editor scene path.
+- Warnings for unused variables and different variable types.
+- Viewport camera movement to be smoother.
+- Viewport camera movement issues when dragging the player.

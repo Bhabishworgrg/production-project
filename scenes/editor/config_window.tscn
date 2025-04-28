@@ -1,5 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://7cwfvvp2jy0h"]
+[gd_scene load_steps=5 format=3 uid="uid://7cwfvvp2jy0h"]
 
+[ext_resource type="Script" path="res://scripts/editor/config_window.gd" id="1_ofw5r"]
 [ext_resource type="Texture2D" uid="uid://c5ixf4pejxt46" path="res://assets/import_button.png" id="1_ph5qa"]
 [ext_resource type="Texture2D" uid="uid://c36x6fgml2xvt" path="res://assets/import_button_hovered.png" id="2_h2w06"]
 [ext_resource type="Script" path="res://scripts/ui/file_importer.gd" id="3_hfn5k"]
@@ -9,6 +10,7 @@ auto_translate_mode = 1
 title = "Configuration"
 initial_position = 1
 size = Vector2i(800, 600)
+script = ExtResource("1_ofw5r")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 offset_right = 800.0
@@ -120,6 +122,7 @@ offset_right = 450.0
 offset_bottom = 550.0
 text = "Save"
 
+[connection signal="close_requested" from="." to="." method="_on_close_requested"]
 [connection signal="pressed" from="BackgroundImportContainer/BackgroundImportButton" to="BackgroundImportContainer" method="_on_button_pressed"]
 [connection signal="file_selected" from="BackgroundImportContainer/FileDialog" to="BackgroundImportContainer" method="_on_file_selected"]
 [connection signal="pressed" from="MusicImportContainer/MusicImportButton" to="MusicImportContainer" method="_on_button_pressed"]

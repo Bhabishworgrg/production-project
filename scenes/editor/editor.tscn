@@ -1,6 +1,7 @@
-[gd_scene load_steps=15 format=3 uid="uid://cs77rcpj453gv"]
+[gd_scene load_steps=17 format=3 uid="uid://cs77rcpj453gv"]
 
 [ext_resource type="PackedScene" uid="uid://b5pf05mkglflu" path="res://scenes/sprite_integration/collision_shape_generator.tscn" id="1_gn8k4"]
+[ext_resource type="Script" path="res://scripts/editor/editor.gd" id="1_j3pyo"]
 [ext_resource type="PackedScene" uid="uid://bh7xpupuq8erj" path="res://scenes/sprite_integration/texture_loader.tscn" id="2_i51o4"]
 [ext_resource type="Texture2D" uid="uid://5x5d0yfqs5xu" path="res://assets/config_button.png" id="3_gii3u"]
 [ext_resource type="Texture2D" uid="uid://c8n1762yhs611" path="res://assets/config_button_hovered.png" id="4_6i0qb"]
@@ -12,6 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://pybj1wrmiwpg" path="res://assets/play_button_hovered.png" id="7_k62e5"]
 [ext_resource type="Texture2D" uid="uid://delkjg8x11wyh" path="res://assets/save_button_hovered.png" id="7_kbrf7"]
 [ext_resource type="PackedScene" uid="uid://s21edsisqeqf" path="res://scenes/editor/draggable_component.tscn" id="9_0k5oo"]
+[ext_resource type="PackedScene" uid="uid://7cwfvvp2jy0h" path="res://scenes/editor/config_window.tscn" id="13_baw0c"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_eclop"]
 size = Vector2(100, 1080)
@@ -21,6 +23,7 @@ width = 100
 height = 1080
 
 [node name="Editor" type="Node2D"]
+script = ExtResource("1_j3pyo")
 
 [node name="Toolbar" type="CanvasLayer" parent="."]
 
@@ -106,3 +109,8 @@ texture = SubResource("NoiseTexture2D_m3s5n")
 
 [node name="Camera2D" type="Camera2D" parent="Viewport"]
 position = Vector2(960, 540)
+
+[node name="ConfigWindow" parent="." instance=ExtResource("13_baw0c")]
+visible = false
+
+[connection signal="pressed" from="Toolbar/ConfigButton" to="." method="_on_config_button_pressed"]

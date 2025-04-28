@@ -13,7 +13,7 @@ public partial class GenerateButton : Button
 	private string _pythonPath;
 	private string _scriptPath;
 
-	private const string _EditorScene = "res://scenes/editor.tscn";
+	private const string _EditorScene = "res://scenes/editor/editor.tscn";
 
 
 	private void OnPressed()

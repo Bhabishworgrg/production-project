@@ -13,7 +13,10 @@ func _ready() -> void:
 
 func _unhandled_input(event):
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
-		_drag_start = get_global_mouse_position() if event.pressed else null
+		if event.is_pressed():
+			_drag_start = get_global_mouse_position()
+		else:
+			_drag_start = null
 
 	if event is InputEventMouseMotion and _drag_start and _moveable:
 		$Camera2D.position += _drag_start - get_global_mouse_position()

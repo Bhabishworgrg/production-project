@@ -20,6 +20,7 @@ func _ready() -> void:
 	_parent.mouse_exited.connect(_viewport._on_draggable_mouse_exited)
 
 
+@warning_ignore('unused_parameter')
 func _process(delta: float) -> void:
 	if _draggable:
 		if Input.is_action_pressed('left_click'):

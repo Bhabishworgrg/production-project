@@ -1,7 +1,7 @@
-[gd_scene load_steps=11 format=3 uid="uid://cuxs266vx45bv"]
+[gd_scene load_steps=13 format=3 uid="uid://b50lsnhi31kw4"]
 
-[ext_resource type="PackedScene" uid="uid://b5pf05mkglflu" path="res://scenes/collision_shape_generator.tscn" id="1_gn8k4"]
-[ext_resource type="PackedScene" uid="uid://bh7xpupuq8erj" path="res://scenes/texture_loader.tscn" id="2_i51o4"]
+[ext_resource type="PackedScene" uid="uid://b5pf05mkglflu" path="res://scenes/sprite_integration/collision_shape_generator.tscn" id="1_gn8k4"]
+[ext_resource type="PackedScene" uid="uid://bh7xpupuq8erj" path="res://scenes/sprite_integration/texture_loader.tscn" id="2_i51o4"]
 [ext_resource type="Texture2D" uid="uid://cj63em73a8eu1" path="res://assets/back_button.png" id="4_mle5y"]
 [ext_resource type="Texture2D" uid="uid://b8r66nirbfcxa" path="res://assets/back_button_hovered.png" id="5_biyjb"]
 [ext_resource type="Texture2D" uid="uid://tmmaoopf84xe" path="res://assets/play_button.png" id="6_4carm"]
@@ -10,6 +10,13 @@
 [ext_resource type="Texture2D" uid="uid://pybj1wrmiwpg" path="res://assets/play_button_hovered.png" id="7_k62e5"]
 [ext_resource type="Texture2D" uid="uid://delkjg8x11wyh" path="res://assets/save_button_hovered.png" id="7_kbrf7"]
 [ext_resource type="PackedScene" uid="uid://s21edsisqeqf" path="res://scenes/editor/draggable_component.tscn" id="9_0k5oo"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_eclop"]
+size = Vector2(100, 1080)
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_m3s5n"]
+width = 100
+height = 1080
 
 [node name="Editor" type="Node2D"]
 
@@ -78,21 +85,13 @@ _segment_count = 100
 [node name="AreaCompleted" type="Area2D" parent="Viewport"]
 position = Vector2(1970, 540)
 
-[node name="ColorRect" type="ColorRect" parent="Viewport/AreaCompleted"]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -50.0
-offset_top = -540.0
-offset_right = 50.0
-offset_bottom = 540.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0, 0.606321, 0.606321, 1)
-
 [node name="DraggableComponent" parent="Viewport/AreaCompleted" instance=ExtResource("9_0k5oo")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Viewport/AreaCompleted"]
+shape = SubResource("RectangleShape2D_eclop")
+
+[node name="Sprite2D" type="Sprite2D" parent="Viewport/AreaCompleted"]
+texture = SubResource("NoiseTexture2D_m3s5n")
 
 [node name="Camera2D" type="Camera2D" parent="Viewport"]
 position = Vector2(960, 540)

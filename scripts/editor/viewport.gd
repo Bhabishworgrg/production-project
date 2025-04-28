@@ -4,20 +4,30 @@ class_name ViewPort
 
 
 var _moveable: bool
-var _drag_start
+var _dragging: bool
+var _drag_delta: Vector2
 
 
 func _ready() -> void:
 	_moveable = true
+	_dragging = false
+	_drag_delta = Vector2.ZERO
 
+
+func _process(_delta: float) -> void:
+	if _drag_delta.length() > 0:
+		$Camera2D.global_position += _drag_delta
+		_drag_delta = Vector2.ZERO
+		
 
 func _unhandled_input(event):
-	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
-		_drag_start = get_global_mouse_position() if event.pressed else null
+	if not _moveable:
+		return
 
-	if event is InputEventMouseMotion and _drag_start and _moveable:
-		$Camera2D.position += _drag_start - get_global_mouse_position()
-		_drag_start = get_global_mouse_position()
+	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
+		_dragging = true if event.is_pressed() else false
+	elif event is InputEventMouseMotion and _dragging:
+		_drag_delta -= event.relative
 
 
 func _on_draggable_mouse_entered() -> void:
@@ -25,4 +35,5 @@ func _on_draggable_mouse_entered() -> void:
 
 
 func _on_draggable_mouse_exited() -> void:
-	_moveable = true
+	if !Input.is_action_pressed('left_click'):
+		_moveable = true 

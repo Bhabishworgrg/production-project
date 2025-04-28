@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://cuxs266vx45bv"]
+[gd_scene load_steps=11 format=3 uid="uid://b50lsnhi31kw4"]
 
 [ext_resource type="PackedScene" uid="uid://b5pf05mkglflu" path="res://scenes/sprite_integration/collision_shape_generator.tscn" id="1_gn8k4"]
 [ext_resource type="PackedScene" uid="uid://bh7xpupuq8erj" path="res://scenes/sprite_integration/texture_loader.tscn" id="2_i51o4"]

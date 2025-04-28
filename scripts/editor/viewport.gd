@@ -14,7 +14,7 @@ func _ready() -> void:
 	_drag_delta = Vector2.ZERO
 
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if _drag_delta.length() > 0:
 		$Camera2D.global_position += _drag_delta
 		_drag_delta = Vector2.ZERO

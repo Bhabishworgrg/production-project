@@ -13,6 +13,5 @@ func _ready() -> void:
 	print_rich('[color=green]SUCCESS[/color]: Player initialized') 
 
 
-@warning_ignore("unused_parameter")
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	move_and_slide()

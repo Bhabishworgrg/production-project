@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://c2xofq24m75xp"]
 
-[ext_resource type="Script" path="res://scripts/game/death_zone.gd" id="1_j34ep"]
+[ext_resource type="Script" path="res://scripts/trigger_areas/death_zone.gd" id="1_j34ep"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ryicp"]
 size = Vector2(2064.75, 21)

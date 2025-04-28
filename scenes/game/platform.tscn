@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://c457unem78en7"]
 
-[ext_resource type="PackedScene" uid="uid://b5pf05mkglflu" path="res://scenes/collision_shape_generator.tscn" id="1_714uq"]
-[ext_resource type="PackedScene" uid="uid://bh7xpupuq8erj" path="res://scenes/texture_loader.tscn" id="2_r8il5"]
+[ext_resource type="PackedScene" uid="uid://b5pf05mkglflu" path="res://scenes/sprite_integration/collision_shape_generator.tscn" id="1_714uq"]
+[ext_resource type="PackedScene" uid="uid://bh7xpupuq8erj" path="res://scenes/sprite_integration/texture_loader.tscn" id="2_r8il5"]
 
 [node name="Platform" type="StaticBody2D"]
 

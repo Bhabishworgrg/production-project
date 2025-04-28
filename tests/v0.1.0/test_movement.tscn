@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://pxhxdrwan5kc"]
 
-[ext_resource type="PackedScene" uid="uid://baao4rnkgcs1i" path="res://scenes/player.tscn" id="1_ole58"]
-[ext_resource type="PackedScene" uid="uid://c457unem78en7" path="res://scenes/platform.tscn" id="2_nef13"]
+[ext_resource type="PackedScene" uid="uid://baao4rnkgcs1i" path="res://scenes/game/player.tscn" id="1_ole58"]
+[ext_resource type="PackedScene" uid="uid://c457unem78en7" path="res://scenes/game/platform.tscn" id="2_nef13"]
 
 [node name="TestMovement" type="Node2D"]
 

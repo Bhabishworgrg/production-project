@@ -81,6 +81,10 @@ offset_top = 90.0
 offset_bottom = 90.0
 script = ExtResource("7_1rru7")
 
+[node name="Background" type="TextureRect" parent="Viewport"]
+layout_mode = 2
+stretch_mode = 2
+
 [node name="Platform" type="Area2D" parent="Viewport"]
 
 [node name="TextureLoader" parent="Viewport/Platform" instance=ExtResource("2_i51o4")]
@@ -110,7 +114,8 @@ texture = SubResource("NoiseTexture2D_m3s5n")
 [node name="Camera2D" type="Camera2D" parent="Viewport"]
 position = Vector2(960, 540)
 
-[node name="ConfigWindow" parent="." instance=ExtResource("13_baw0c")]
+[node name="ConfigWindow" parent="." node_paths=PackedStringArray("_background") instance=ExtResource("13_baw0c")]
 visible = false
+_background = NodePath("../Viewport/Background")
 
 [connection signal="pressed" from="Toolbar/ConfigButton" to="." method="_on_config_button_pressed"]

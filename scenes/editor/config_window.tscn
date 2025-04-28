@@ -5,12 +5,14 @@
 [ext_resource type="Texture2D" uid="uid://c36x6fgml2xvt" path="res://assets/import_button_hovered.png" id="2_h2w06"]
 [ext_resource type="Script" path="res://scripts/ui/file_importer.gd" id="3_hfn5k"]
 
-[node name="ConfigWindow" type="Window"]
+[node name="ConfigWindow" type="Window" node_paths=PackedStringArray("_background_path_field", "_music_path_field")]
 auto_translate_mode = 1
 title = "Configuration"
 initial_position = 1
 size = Vector2i(800, 600)
 script = ExtResource("1_ofw5r")
+_background_path_field = NodePath("BackgroundImportContainer/PathField")
+_music_path_field = NodePath("MusicImportContainer/PathField")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 offset_right = 800.0
@@ -127,3 +129,4 @@ text = "Save"
 [connection signal="file_selected" from="BackgroundImportContainer/FileDialog" to="BackgroundImportContainer" method="_on_file_selected"]
 [connection signal="pressed" from="MusicImportContainer/MusicImportButton" to="MusicImportContainer" method="_on_button_pressed"]
 [connection signal="file_selected" from="MusicImportContainer/FileDialog" to="MusicImportContainer" method="_on_file_selected"]
+[connection signal="pressed" from="SaveButton" to="." method="_on_save_button_pressed"]

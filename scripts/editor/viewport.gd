@@ -28,4 +28,5 @@ func _on_draggable_mouse_entered() -> void:
 
 
 func _on_draggable_mouse_exited() -> void:
-	_moveable = true
+	if !Input.is_action_pressed('left_click'):
+		_moveable = true 

@@ -33,5 +33,6 @@ func _on_mouse_entered() -> void:
 
 
 func _on_mouse_exited() -> void:
-	_draggable = false
-	_parent.scale = Vector2(1, 1)
+	if !Input.is_action_pressed('left_click'):
+		_draggable = false
+		_parent.scale = Vector2(1, 1)

@@ -107,11 +107,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 - Player collision shape's size datatype to float for better precision.
 - Improved sobel edge detection algorithm.
-<<<<<<< Updated upstream
-=======
-<<<<<<< Updated upstream
-=======
->>>>>>> Stashed changes
 
 ## [v0.2.0] - 2025-04-10
 

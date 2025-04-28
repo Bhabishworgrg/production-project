@@ -1,5 +1,7 @@
 extends CanvasLayer
 
+class_name MainMenu
+
 
 const _IMPORT_SCENE: String = 'res://scenes/ui/import_screen.tscn'
 const _DEMO_SCENE: String = 'res://scenes/demo.tscn'

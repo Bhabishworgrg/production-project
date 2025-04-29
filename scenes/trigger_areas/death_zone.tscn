@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://scripts/game/death_zone.gd" id="1_j34ep"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ryicp"]
-size = Vector2(2064.75, 21)
+size = Vector2(5000, 27)
 
 [node name="DeathZone" type="Area2D"]
 script = ExtResource("1_j34ep")

@@ -1,0 +1,132 @@
+[gd_scene load_steps=5 format=3 uid="uid://7cwfvvp2jy0h"]
+
+[ext_resource type="Script" path="res://scripts/editor/config_window.gd" id="1_ofw5r"]
+[ext_resource type="Texture2D" uid="uid://c5ixf4pejxt46" path="res://assets/import_button.png" id="1_ph5qa"]
+[ext_resource type="Texture2D" uid="uid://c36x6fgml2xvt" path="res://assets/import_button_hovered.png" id="2_h2w06"]
+[ext_resource type="Script" path="res://scripts/ui/file_importer.gd" id="3_hfn5k"]
+
+[node name="ConfigWindow" type="Window" node_paths=PackedStringArray("_background_path_field", "_music_path_field")]
+auto_translate_mode = 1
+title = "Configuration"
+initial_position = 1
+size = Vector2i(800, 600)
+script = ExtResource("1_ofw5r")
+_background_path_field = NodePath("BackgroundImportContainer/PathField")
+_music_path_field = NodePath("MusicImportContainer/PathField")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_right = 800.0
+offset_bottom = 600.0
+color = Color(0, 0, 0, 1)
+
+[node name="BackgroundImportContainer" type="Control" parent="." node_paths=PackedStringArray("_initial_focus_control")]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("3_hfn5k")
+_initial_focus_control = NodePath("PathField")
+
+[node name="Label" type="Label" parent="BackgroundImportContainer"]
+layout_mode = 0
+offset_left = 170.0
+offset_top = 170.0
+offset_right = 263.0
+offset_bottom = 193.0
+text = "Background"
+
+[node name="PathField" type="LineEdit" parent="BackgroundImportContainer"]
+layout_mode = 0
+offset_left = 170.0
+offset_top = 200.0
+offset_right = 560.0
+offset_bottom = 250.0
+focus_neighbor_right = NodePath("../BackgroundImportButton")
+focus_neighbor_bottom = NodePath("../../MusicImportContainer/PathField")
+focus_next = NodePath("../BackgroundImportButton")
+
+[node name="BackgroundImportButton" type="TextureButton" parent="BackgroundImportContainer"]
+layout_mode = 0
+offset_left = 580.0
+offset_top = 200.0
+offset_right = 630.0
+offset_bottom = 250.0
+focus_neighbor_left = NodePath("../PathField")
+focus_neighbor_bottom = NodePath("../../MusicImportContainer/MusicImportButton")
+focus_next = NodePath("../../MusicImportContainer/PathField")
+focus_previous = NodePath("../PathField")
+texture_normal = ExtResource("1_ph5qa")
+texture_hover = ExtResource("2_h2w06")
+texture_focused = ExtResource("2_h2w06")
+
+[node name="FileDialog" type="FileDialog" parent="BackgroundImportContainer"]
+title = "Open a File"
+initial_position = 1
+size = Vector2i(800, 600)
+ok_button_text = "Open"
+file_mode = 0
+access = 2
+
+[node name="MusicImportContainer" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("3_hfn5k")
+
+[node name="Label" type="Label" parent="MusicImportContainer"]
+layout_mode = 0
+offset_left = 170.0
+offset_top = 320.0
+offset_right = 263.0
+offset_bottom = 343.0
+text = "Music"
+
+[node name="PathField" type="LineEdit" parent="MusicImportContainer"]
+layout_mode = 0
+offset_left = 170.0
+offset_top = 350.0
+offset_right = 560.0
+offset_bottom = 400.0
+focus_neighbor_top = NodePath("../../BackgroundImportContainer/PathField")
+focus_neighbor_right = NodePath("../MusicImportButton")
+focus_neighbor_bottom = NodePath("../../SaveButton")
+focus_next = NodePath("../MusicImportButton")
+focus_previous = NodePath("../../BackgroundImportContainer/BackgroundImportButton")
+
+[node name="MusicImportButton" type="TextureButton" parent="MusicImportContainer"]
+layout_mode = 0
+offset_left = 580.0
+offset_top = 350.0
+offset_right = 630.0
+offset_bottom = 400.0
+focus_neighbor_left = NodePath("../PathField")
+focus_neighbor_top = NodePath("../../BackgroundImportContainer/BackgroundImportButton")
+focus_next = NodePath("../../SaveButton")
+focus_previous = NodePath("../PathField")
+texture_normal = ExtResource("1_ph5qa")
+texture_hover = ExtResource("2_h2w06")
+texture_focused = ExtResource("2_h2w06")
+
+[node name="FileDialog" type="FileDialog" parent="MusicImportContainer"]
+auto_translate_mode = 1
+title = "Open a File"
+initial_position = 1
+size = Vector2i(800, 600)
+ok_button_text = "Open"
+file_mode = 0
+access = 2
+
+[node name="SaveButton" type="Button" parent="."]
+offset_left = 350.0
+offset_top = 500.0
+offset_right = 450.0
+offset_bottom = 550.0
+text = "Save"
+
+[connection signal="close_requested" from="." to="." method="_on_close_requested"]
+[connection signal="pressed" from="BackgroundImportContainer/BackgroundImportButton" to="BackgroundImportContainer" method="_on_button_pressed"]
+[connection signal="file_selected" from="BackgroundImportContainer/FileDialog" to="BackgroundImportContainer" method="_on_file_selected"]
+[connection signal="pressed" from="MusicImportContainer/MusicImportButton" to="MusicImportContainer" method="_on_button_pressed"]
+[connection signal="file_selected" from="MusicImportContainer/FileDialog" to="MusicImportContainer" method="_on_file_selected"]
+[connection signal="pressed" from="SaveButton" to="." method="_on_save_button_pressed"]

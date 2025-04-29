@@ -1,19 +1,27 @@
-[gd_scene load_steps=5 format=3 uid="uid://d3cnn26ga5mls"]
+[gd_scene load_steps=6 format=3 uid="uid://d3cnn26ga5mls"]
 
-[ext_resource type="PackedScene" uid="uid://baao4rnkgcs1i" path="res://scenes/player.tscn" id="1_a1tfp"]
-[ext_resource type="PackedScene" uid="uid://c457unem78en7" path="res://scenes/platform.tscn" id="2_v7wes"]
+[ext_resource type="PackedScene" uid="uid://baao4rnkgcs1i" path="res://scenes/game/player.tscn" id="1_a1tfp"]
+[ext_resource type="Script" path="res://scripts/game/game.gd" id="1_slxob"]
+[ext_resource type="PackedScene" uid="uid://c457unem78en7" path="res://scenes/game/platform.tscn" id="2_v7wes"]
 [ext_resource type="PackedScene" uid="uid://c2xofq24m75xp" path="res://scenes/trigger_areas/death_zone.tscn" id="3_nrv3c"]
 [ext_resource type="PackedScene" uid="uid://dg0p1ryorij3b" path="res://scenes/trigger_areas/area_completed.tscn" id="4_q063s"]
 
 [node name="Game" type="Node2D"]
+script = ExtResource("1_slxob")
+
+[node name="Background" type="TextureRect" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="MusicPlayer" type="AudioStreamPlayer" parent="."]
 
 [node name="Platform" parent="." instance=ExtResource("2_v7wes")]
 
 [node name="Player" parent="." instance=ExtResource("1_a1tfp")]
-position = Vector2(558, -656)
+jump_velocity = -700.0
 
 [node name="AreaCompleted" parent="." instance=ExtResource("4_q063s")]
-position = Vector2(1902, 649)
+position = Vector2(1920, 540)
 
 [node name="DeathZone" parent="." instance=ExtResource("3_nrv3c")]
 position = Vector2(963, 1106)

@@ -45,6 +45,7 @@ theme_override_font_sizes/font_size = 21
 text = "Unsaved(*)"
 
 [node name="SaveButton" type="TextureButton" parent="Toolbar"]
+visible = false
 offset_left = 1775.0
 offset_top = 20.0
 offset_right = 1825.0
@@ -95,3 +96,10 @@ texture = SubResource("NoiseTexture2D_m3s5n")
 
 [node name="Camera2D" type="Camera2D" parent="Viewport"]
 position = Vector2(960, 540)
+
+[node name="ConfigWindow" parent="." node_paths=PackedStringArray("_background") instance=ExtResource("13_baw0c")]
+visible = false
+_background = NodePath("../Viewport/Background")
+
+[connection signal="pressed" from="Toolbar/ConfigButton" to="." method="_on_config_button_pressed"]
+[connection signal="pressed" from="Toolbar/PlayButton" to="." method="_on_play_button_pressed"]

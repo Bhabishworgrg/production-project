@@ -23,5 +23,9 @@ func get_all() -> Dictionary:
 	return _data
 
 
+func set_all(data: Dictionary) -> void:
+	_data = data
+
+
 func clear_all() -> void:
 	_data.clear()

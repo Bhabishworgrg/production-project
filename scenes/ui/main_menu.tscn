@@ -86,6 +86,7 @@ dialog_text = "Are you sure you want to exit?"
 cancel_button_text = "No"
 
 [connection signal="pressed" from="LoadContainer/LoadButton" to="." method="_on_load_button_pressed"]
+[connection signal="file_selected" from="LoadContainer/FileDialog" to="." method="_on_load_file_selected"]
 [connection signal="pressed" from="CreateButton" to="." method="_on_create_button_pressed"]
 [connection signal="pressed" from="DemoButton" to="." method="_on_demo_button_pressed"]
 [connection signal="pressed" from="ExitContainer/ExitButton" to="." method="_on_exit_button_pressed"]

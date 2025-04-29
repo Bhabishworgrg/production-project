@@ -15,6 +15,19 @@ func _on_load_button_pressed() -> void:
 	$LoadContainer/FileDialog.show()	
 
 
+func _on_load_file_selected(path: String) -> void:
+	GlobalState.clear_all()
+	var file = FileAccess.open(path, FileAccess.READ)
+	if file:
+		var data = file.get_var()
+		file.close()
+		GlobalState.set_all(data)
+
+		get_tree().change_scene_to_file.call_deferred('res://scenes/editor/editor.tscn')
+	else:
+		print_rich('[color=red]ERROR[/color]: Failed to load file.')
+
+
 func _on_create_button_pressed() -> void:
 	get_tree().change_scene_to_file.call_deferred(_IMPORT_SCENE)
 

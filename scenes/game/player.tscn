@@ -1,6 +1,6 @@
 [gd_scene load_steps=10 format=3 uid="uid://baao4rnkgcs1i"]
 
-[ext_resource type="Script" path="res://scripts/player/player.gd" id="1_duirn"]
+[ext_resource type="Script" path="res://scripts/game/player.gd" id="1_duirn"]
 [ext_resource type="PackedScene" uid="uid://di577ckd2iddj" path="res://scenes/states/state_machine.tscn" id="3_ag3f3"]
 [ext_resource type="PackedScene" uid="uid://fuxfgex5ujp1" path="res://scenes/states/state_idle.tscn" id="4_1rt4c"]
 [ext_resource type="PackedScene" uid="uid://bfmpkgrip5r54" path="res://scenes/states/state_fall.tscn" id="5_e0jkm"]

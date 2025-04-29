@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://scripts/trigger_areas/area_completed.gd" id="1_vr7tv"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_l1rb4"]
-size = Vector2(44, 836)
+size = Vector2(100, 1080)
 
 [node name="AreaCompleted" type="Area2D"]
 script = ExtResource("1_vr7tv")

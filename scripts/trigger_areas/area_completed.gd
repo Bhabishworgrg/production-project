@@ -6,6 +6,10 @@ class_name AreaCompleted
 const _LEVEL_COMPLETE_SCENE: String = 'res://scenes/ui/complete_ui.tscn'
 
 
+func _ready() -> void:
+	position = GlobalState.get_value("area_completed", "position")
+
+
 func _on_player_entered(body: Node2D) -> void:
 	if body.is_in_group('player'):
 		get_tree().change_scene_to_file.call_deferred(_LEVEL_COMPLETE_SCENE)

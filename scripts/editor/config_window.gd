@@ -20,5 +20,7 @@ func _on_save_button_pressed() -> void:
 	var music_path = _music_path_field.text
 	
 	_background.texture = load(background_path)
+	GlobalState.set_value("background", "texture", _background.texture)
+	GlobalState.set_value("music", "audio_stream", music_path)
 
 	hide()

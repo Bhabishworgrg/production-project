@@ -226,3 +226,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Fixed
 - Player disappearing behind platform and area completion object.
 - Area completion object not being draggable.
+
+# [v0.5.0-alpha.1] - 2025-04-29
+
+### Added
+- Autoload script for global variables.
+- Configuration window in the editor.
+- Background setting in the editor from config.

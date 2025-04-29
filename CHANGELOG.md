@@ -233,3 +233,17 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Autoload script for global variables.
 - Configuration window in the editor.
 - Background setting in the editor from config.
+
+# [v0.5.0-alpha.2] - 2025-04-29
+
+### Added
+- Getting and setting global variables of the autoload.
+- Navigation from editor to game scene.
+- Updating of player and area completed object positions in the game scene.
+- Updating of background and music in the game scene.
+
+### Changed
+- Project structure to be more organized.
+
+### Fixed
+- Death zone's and area completion object's sizes.

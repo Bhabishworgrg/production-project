@@ -119,4 +119,5 @@ visible = false
 _background = NodePath("../Viewport/Background")
 
 [connection signal="pressed" from="Toolbar/ConfigButton" to="." method="_on_config_button_pressed"]
+[connection signal="pressed" from="Toolbar/SaveButton" to="." method="_on_save_button_pressed"]
 [connection signal="pressed" from="Toolbar/PlayButton" to="." method="_on_play_button_pressed"]

@@ -1,6 +1,9 @@
 extends Node2D
 
 
+func _ready() -> void:
+	$Toolbar/FileName.text = GlobalState.get_file_name()
+
 func _on_config_button_pressed() -> void:
 	$ConfigWindow.show()
 

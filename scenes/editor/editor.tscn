@@ -50,7 +50,6 @@ offset_top = 30.0
 offset_right = 1001.0
 offset_bottom = 60.0
 theme_override_font_sizes/font_size = 21
-text = "Unsaved(*)"
 
 [node name="ConfigButton" type="TextureButton" parent="Toolbar"]
 offset_left = 1625.0

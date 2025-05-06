@@ -64,6 +64,7 @@ title = "Choose a Background"
 initial_position = 1
 size = Vector2i(800, 600)
 ok_button_text = "Open"
+mode_overrides_title = false
 file_mode = 0
 access = 2
 
@@ -114,6 +115,7 @@ title = "Choose Music"
 initial_position = 1
 size = Vector2i(800, 600)
 ok_button_text = "Open"
+mode_overrides_title = false
 file_mode = 0
 access = 2
 

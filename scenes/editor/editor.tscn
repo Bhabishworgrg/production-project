@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://cs77rcpj453gv"]
+[gd_scene load_steps=20 format=3 uid="uid://cs77rcpj453gv"]
 
 [ext_resource type="PackedScene" uid="uid://b5pf05mkglflu" path="res://scenes/sprite_integration/collision_shape_generator.tscn" id="1_gn8k4"]
 [ext_resource type="Script" path="res://scripts/editor/editor.gd" id="1_j3pyo"]
@@ -12,8 +12,11 @@
 [ext_resource type="Script" path="res://scripts/editor/viewport.gd" id="7_1rru7"]
 [ext_resource type="Texture2D" uid="uid://pybj1wrmiwpg" path="res://assets/play_button_hovered.png" id="7_k62e5"]
 [ext_resource type="Texture2D" uid="uid://delkjg8x11wyh" path="res://assets/save_button_hovered.png" id="7_kbrf7"]
+[ext_resource type="Texture2D" uid="uid://dvmmd5jddqkca" path="res://assets/save_as_button.png" id="8_5g1e4"]
 [ext_resource type="PackedScene" uid="uid://s21edsisqeqf" path="res://scenes/editor/draggable_component.tscn" id="9_0k5oo"]
+[ext_resource type="Texture2D" uid="uid://cliry3ggtu8sh" path="res://assets/save_as_button_hovered.png" id="9_uxxml"]
 [ext_resource type="PackedScene" uid="uid://7cwfvvp2jy0h" path="res://scenes/editor/config_window.tscn" id="13_baw0c"]
+[ext_resource type="PackedScene" uid="uid://dbv8ls7eooax7" path="res://scenes/editor/save_as_window.tscn" id="15_cd4kw"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_eclop"]
 size = Vector2(100, 1080)
@@ -50,22 +53,31 @@ theme_override_font_sizes/font_size = 21
 text = "Unsaved(*)"
 
 [node name="ConfigButton" type="TextureButton" parent="Toolbar"]
-offset_left = 1700.0
+offset_left = 1625.0
 offset_top = 20.0
-offset_right = 1750.0
+offset_right = 1675.0
 offset_bottom = 70.0
 texture_normal = ExtResource("3_gii3u")
 texture_hover = ExtResource("4_6i0qb")
 texture_focused = ExtResource("4_6i0qb")
 
 [node name="SaveButton" type="TextureButton" parent="Toolbar"]
-offset_left = 1775.0
+offset_left = 1700.0
 offset_top = 20.0
-offset_right = 1825.0
+offset_right = 1750.0
 offset_bottom = 70.0
 texture_normal = ExtResource("6_vbsrd")
 texture_hover = ExtResource("7_kbrf7")
 texture_focused = ExtResource("7_kbrf7")
+
+[node name="SaveAsButton" type="TextureButton" parent="Toolbar"]
+offset_left = 1775.0
+offset_top = 20.0
+offset_right = 1825.0
+offset_bottom = 70.0
+texture_normal = ExtResource("8_5g1e4")
+texture_hover = ExtResource("9_uxxml")
+texture_focused = ExtResource("9_uxxml")
 
 [node name="PlayButton" type="TextureButton" parent="Toolbar"]
 offset_left = 1850.0
@@ -118,6 +130,12 @@ position = Vector2(960, 540)
 visible = false
 _background = NodePath("../Viewport/Background")
 
+[node name="SaveAsWindow" parent="." node_paths=PackedStringArray("_player", "_area_completed") instance=ExtResource("15_cd4kw")]
+visible = false
+_player = NodePath("../Viewport/Player")
+_area_completed = NodePath("../Viewport/AreaCompleted")
+
 [connection signal="pressed" from="Toolbar/ConfigButton" to="." method="_on_config_button_pressed"]
 [connection signal="pressed" from="Toolbar/SaveButton" to="." method="_on_save_button_pressed"]
+[connection signal="pressed" from="Toolbar/SaveAsButton" to="." method="_on_save_as_button_pressed"]
 [connection signal="pressed" from="Toolbar/PlayButton" to="." method="_on_play_button_pressed"]

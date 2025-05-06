@@ -30,3 +30,7 @@ func _on_save_button_pressed() -> void:
 		save_file.close()
 	else:
 		print_rich('[color=red]ERROR[/color]: Failed to save file.')
+
+
+func _on_save_as_button_pressed() -> void:
+	$SaveAsWindow.show()

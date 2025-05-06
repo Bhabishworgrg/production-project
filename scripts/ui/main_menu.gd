@@ -21,6 +21,9 @@ func _on_load_file_selected(path: String) -> void:
 	if file:
 		var data = file.get_var()
 		file.close()
+
+		var file_name = path.get_file().get_basename()
+		GlobalState.set_file_name(file_name)
 		GlobalState.set_all(data)
 
 		get_tree().change_scene_to_file.call_deferred('res://scenes/editor/editor.tscn')

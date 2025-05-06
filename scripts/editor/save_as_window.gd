@@ -5,6 +5,8 @@ extends Window
 var _player: Node2D 
 @export
 var _area_completed: Node2D
+@export
+var _file_name_label: Label
 
 
 func _on_close_requested() -> void:
@@ -24,7 +26,8 @@ func _on_save_button_pressed() -> void:
 	if save_file:
 		save_file.store_var(GlobalState.get_all())
 		save_file.close()
+		_file_name_label.text = file_name
 	else:
 		print_rich('[color=red]ERROR[/color]: Failed to save file.')
-	
+
 	hide()

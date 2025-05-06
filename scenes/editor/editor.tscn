@@ -50,7 +50,6 @@ offset_top = 30.0
 offset_right = 1001.0
 offset_bottom = 60.0
 theme_override_font_sizes/font_size = 21
-text = "Unsaved(*)"
 
 [node name="ConfigButton" type="TextureButton" parent="Toolbar"]
 offset_left = 1625.0
@@ -130,10 +129,11 @@ position = Vector2(960, 540)
 visible = false
 _background = NodePath("../Viewport/Background")
 
-[node name="SaveAsWindow" parent="." node_paths=PackedStringArray("_player", "_area_completed") instance=ExtResource("15_cd4kw")]
+[node name="SaveAsWindow" parent="." node_paths=PackedStringArray("_player", "_area_completed", "_file_name_label") instance=ExtResource("15_cd4kw")]
 visible = false
 _player = NodePath("../Viewport/Player")
 _area_completed = NodePath("../Viewport/AreaCompleted")
+_file_name_label = NodePath("../Toolbar/FileName")
 
 [connection signal="pressed" from="Toolbar/ConfigButton" to="." method="_on_config_button_pressed"]
 [connection signal="pressed" from="Toolbar/SaveButton" to="." method="_on_save_button_pressed"]

@@ -1,12 +1,21 @@
 extends Node
 
 
+var _file_name: String = 'Unsaved(*)'
 var _data: Dictionary = {
 	"player": {},
 	"area_completed": {},
 	"background": {},
 	"music": {},
 }
+
+
+func get_file_name() -> String:
+	return _file_name
+
+
+func set_file_name(file_name: String) -> void:
+	_file_name = file_name
 
 
 func set_value(id: String, key: String, value: Variant) -> void:

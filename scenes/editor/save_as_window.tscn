@@ -1,0 +1,30 @@
+[gd_scene load_steps=2 format=3 uid="uid://dbv8ls7eooax7"]
+
+[ext_resource type="Script" path="res://scripts/editor/save_as_window.gd" id="1_73cy2"]
+
+[node name="SaveAsWindow" type="Window"]
+title = "Save As"
+initial_position = 1
+size = Vector2i(600, 150)
+script = ExtResource("1_73cy2")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_right = 800.0
+offset_bottom = 600.0
+color = Color(0, 0, 0, 1)
+
+[node name="PathField" type="LineEdit" parent="."]
+offset_left = 100.0
+offset_top = 30.0
+offset_right = 500.0
+offset_bottom = 70.0
+
+[node name="Button" type="Button" parent="."]
+offset_left = 255.0
+offset_top = 90.0
+offset_right = 345.0
+offset_bottom = 130.0
+text = "Save"
+
+[connection signal="close_requested" from="." to="." method="_on_close_requested"]
+[connection signal="pressed" from="Button" to="." method="_on_save_button_pressed"]

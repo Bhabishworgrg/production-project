@@ -27,6 +27,7 @@ func _on_save_button_pressed() -> void:
 		save_file.store_var(GlobalState.get_all())
 		save_file.close()
 		_file_name_label.text = file_name
+		GlobalState.set_file_name(file_name)
 	else:
 		print_rich('[color=red]ERROR[/color]: Failed to save file.')
 

@@ -23,11 +23,16 @@ func _on_save_button_pressed() -> void:
 	GlobalState.set_value("player", "position", $Viewport/Player.position)
 	GlobalState.set_value("area_completed", "position", $Viewport/AreaCompleted.position)
 
+	var file_name = GlobalState.get_file_name()
+	if file_name == "Unsaved(*)":
+		$SaveAsWindow.show()
+		return
+
 	var dir_access = DirAccess.open("res://")
 	if dir_access.change_dir("save") != OK:
 		dir_access.make_dir("save")
 
-	var save_file = FileAccess.open("res://save/savegame.save", FileAccess.WRITE)
+	var save_file = FileAccess.open("res://save".path_join(file_name)+".save", FileAccess.WRITE)
 	if save_file:
 		save_file.store_var(GlobalState.get_all())
 		save_file.close()

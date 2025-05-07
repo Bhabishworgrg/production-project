@@ -247,3 +247,16 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Fixed
 - Death zone's and area completion object's sizes.
+
+# [v0.5.0-alpha.3] - 2025-05-07
+
+### Added
+- Save and load functionality in the editor.
+- Save as functionality in the editor.
+- Dynamic filename label in the editor.
+
+### Changed
+- Autoload script to sync with save and load functionality.
+
+### Fixed
+- File dialogs' titles of the Config window.

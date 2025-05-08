@@ -44,7 +44,7 @@ public partial class CaptureButton : TextureButton
 	{
         string pythonPath = (OS.GetName() == "Windows")
 			? Path.Join(_basePath, ".venv", "Scripts", "python.exe")
-			: Path.Join(_basePath, ".venv", "bin", "python");
+			: Path.Join(_basePath, ".venv", "bin", "python3");
 		
         string scriptPath = Path.Join(_basePath, "scripts", "img_proc", "image_capture.py");
 

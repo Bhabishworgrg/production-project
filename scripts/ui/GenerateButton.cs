@@ -31,7 +31,7 @@ public partial class GenerateButton : Button
 
         _pythonPath = (OS.GetName() == "Windows")
 			? Path.Join(basePath, ".venv", "Scripts", "python.exe")
-			: Path.Join(basePath, ".venv", "bin", "python");
+			: Path.Join(basePath, ".venv", "bin", "python3");
 
         _scriptPath = Path.Join(basePath, "scripts", "img_proc", "image_processor.py");
 

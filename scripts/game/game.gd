@@ -2,6 +2,12 @@ extends Node2D
 
 
 func _ready() -> void:
-	$Background.texture = load(GlobalState.get_value("background", "texture"))
-	$MusicPlayer.stream = load(GlobalState.get_value("music", "audio_stream"))
-	$MusicPlayer.play()
+	var background = GlobalState.get_value("background", "texture")
+	var music = GlobalState.get_value("music", "audio_stream")
+	
+	if background:
+		$Background.texture = load(background)
+	
+	if music:
+		$MusicPlayer.stream = load(music)
+		$MusicPlayer.play()

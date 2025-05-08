@@ -31,7 +31,10 @@ public partial class GenerateButton : Button
 			? OS.GetExecutablePath().GetBaseDir() 
 			: ProjectSettings.GlobalizePath("res://");
 
-        _pythonPath = Path.Join(basePath, ".venv", "bin", "python");
+        _pythonPath = (OS.GetName() == "Windows")
+			? Path.Join(basePath, ".venv", "Scripts", "python.exe")
+			: Path.Join(basePath, ".venv", "bin", "python");
+
         _scriptPath = Path.Join(basePath, "scripts", "img_proc", "image_processor.py");
 
 		string algorithm = string.Empty;

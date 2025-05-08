@@ -18,8 +18,10 @@ public partial class GenerateButton : Button
 
 	private void OnPressed()
 	{
-		RunPythonScript();
-		GetTree().CallDeferred(SceneTree.MethodName.ChangeSceneToFile, _EditorScene);
+		string extension = Path.GetExtension(_platformPathField.Text);
+		if (File.Exists(_playerPathField.Text) == false) 
+			RunPythonScript();
+			GetTree().CallDeferred(SceneTree.MethodName.ChangeSceneToFile, _EditorScene);
 	}
 
 
@@ -29,7 +31,7 @@ public partial class GenerateButton : Button
 			? OS.GetExecutablePath().GetBaseDir() 
 			: ProjectSettings.GlobalizePath("res://");
 
-        _pythonPath = Path.Join(basePath, "venv", "bin", "python");
+        _pythonPath = Path.Join(basePath, ".venv", "bin", "python");
         _scriptPath = Path.Join(basePath, "scripts", "img_proc", "image_processor.py");
 
 		string algorithm = string.Empty;

@@ -18,10 +18,8 @@ public partial class GenerateButton : Button
 
 	private void OnPressed()
 	{
-		string extension = Path.GetExtension(_platformPathField.Text);
-		if (File.Exists(_playerPathField.Text) == false) 
-			RunPythonScript();
-			GetTree().CallDeferred(SceneTree.MethodName.ChangeSceneToFile, _EditorScene);
+		RunPythonScript();
+		GetTree().CallDeferred(SceneTree.MethodName.ChangeSceneToFile, _EditorScene);
 	}
 
 

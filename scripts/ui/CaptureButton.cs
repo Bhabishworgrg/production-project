@@ -42,7 +42,10 @@ public partial class CaptureButton : TextureButton
 
 	private void RunPythonScript(string assetType)
 	{
-        string pythonPath = Path.Join(_basePath, ".venv", "bin", "python");
+        string pythonPath = (OS.GetName() == "Windows")
+			? Path.Join(_basePath, ".venv", "Scripts", "python.exe")
+			: Path.Join(_basePath, ".venv", "bin", "python");
+		
         string scriptPath = Path.Join(_basePath, "scripts", "img_proc", "image_capture.py");
 
 		try 

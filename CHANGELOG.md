@@ -260,3 +260,21 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Fixed
 - File dialogs' titles of the Config window.
+
+# [v0.5.0-beta.1] - 2025-05-10
+
+### Added
+- Build script for exporting the application.
+
+### Changed
+- Project structure to be more organized.
+- .gitignore.
+
+### Fixed
+- Rendering issues on choosing invalid background and music.
+- MacOS export issues.
+- Windows path issues.
+- Python subprocess call issues.
+
+### Removed
+- Duplicate player.gd script.

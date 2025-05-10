@@ -34,6 +34,7 @@ func _on_save_button_pressed() -> void:
 
 	if FileAccess.file_exists(music_path) or music_path == "":
 		GlobalState.set_value("music", "audio_stream", music_path)
+		print_rich('[color=green]SUCCESS[/color]: Music file path saved.')
 	else:
 		print_rich('[color=red]ERROR[/color]: Music file not found.')
 

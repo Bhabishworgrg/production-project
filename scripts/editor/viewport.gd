@@ -20,7 +20,7 @@ func _process(_delta: float) -> void:
 		_drag_delta = Vector2.ZERO
 		
 
-func _unhandled_input(event):
+func _unhandled_input(event: InputEvent) -> void:
 	if not _moveable:
 		return
 

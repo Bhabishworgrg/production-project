@@ -1,5 +1,6 @@
 extends Window
 
+class_name SaveAsWindow
 
 @export
 var _player: Node2D 

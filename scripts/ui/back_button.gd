@@ -1,5 +1,7 @@
 extends TextureButton
 
+class_name BackButton
+
 
 func _on_pressed() -> void:
 	var current_scene = GlobalState.get_current_scene()

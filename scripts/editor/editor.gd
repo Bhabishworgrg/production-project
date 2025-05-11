@@ -1,5 +1,6 @@
 extends Node2D
 
+class_name Editor
 
 func _ready() -> void:
 	$Toolbar/FileName.text = GlobalState.get_file_name()

@@ -24,9 +24,14 @@ func _on_save_button_pressed() -> void:
 		
 		var ext = background_path.get_extension().to_lower()
 		if ext in ["png", "jpg", "jpeg", "webp", "bmp", "tga"]:
-			_background.texture = load(background_path)
+			var image = Image.load_from_file(background_path)
+			var texture = ImageTexture.new()
+			texture.set_image(image)
+			_background.texture = texture
+			print_rich('[color=green]SUCCESS[/color]: Background texture path saved.')
 		elif background_path == "":
 			_background.texture = null
+			print('INFO: No background texture set.')
 		else:
 			print_rich('[color=red]ERROR[/color]: Invalid background texture format. Supported formats: png, jpg, jpeg, webp, bmp, tga.')	
 	else:

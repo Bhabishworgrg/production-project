@@ -8,7 +8,10 @@ func _ready() -> void:
 	var music = GlobalState.get_value("music", "audio_stream")
 
 	if background:
-		$Background.texture = load(background)
+		var image = Image.load_from_file(background)
+		var texture = ImageTexture.new()
+		texture.set_image(image)
+		$Background.texture = texture
 
 	if music and FileAccess.file_exists(music):
 		var stream = load_external_wav(music)

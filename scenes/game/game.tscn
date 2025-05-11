@@ -17,10 +17,10 @@ offset_bottom = 40.0
 
 [node name="Platform" parent="." instance=ExtResource("2_v7wes")]
 
-[node name="Player" parent="." instance=ExtResource("1_a1tfp")]
+[node name="Player" parent="." groups=["game"] instance=ExtResource("1_a1tfp")]
 jump_velocity = -700.0
 
-[node name="AreaCompleted" parent="." instance=ExtResource("4_q063s")]
+[node name="AreaCompleted" parent="." groups=["game"] instance=ExtResource("4_q063s")]
 position = Vector2(1920, 540)
 
 [node name="DeathZone" parent="." instance=ExtResource("3_nrv3c")]

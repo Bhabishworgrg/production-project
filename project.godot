@@ -33,6 +33,7 @@ project/assembly_name="production-project"
 [global_group]
 
 player=""
+game=""
 
 [input]
 

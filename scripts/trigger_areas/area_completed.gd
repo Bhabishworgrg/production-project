@@ -7,7 +7,8 @@ const _LEVEL_COMPLETE_SCENE: String = 'res://scenes/ui/complete_ui.tscn'
 
 
 func _ready() -> void:
-	position = GlobalState.get_value("area_completed", "position")
+	if is_in_group('game'):
+		position = GlobalState.get_value("area_completed", "position")
 
 
 func _on_player_entered(body: Node2D) -> void:

@@ -10,7 +10,7 @@ var jump_velocity: float = -400.0
 
 
 func _ready() -> void:
-	if is_in_group('player'):
+	if is_in_group('game'):
 		position = GlobalState.get_value("player", "position")
 	print_rich('[color=green]SUCCESS[/color]: Player initialized') 
 

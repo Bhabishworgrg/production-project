@@ -284,3 +284,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Fixed
 - Music not playing on the game scene.
 - save and assets directory not being in final build.
+
+# [v1.0.0] - 2025-05-11
+
+### Added
+- C# solution for the project.
+- Pause menu.
+- Back button.
+- Demo level.
+- Group to separate demo and game nodes.
+
+### Changed
+- metadata.json.

@@ -7,6 +7,7 @@ func _process(delta: float) -> void:
 
 
 func _on_replay_button_pressed() -> void:
+	get_tree().paused = false
 	var current_scene = GlobalState.get_current_scene()
 	get_tree().change_scene_to_file.call_deferred(current_scene)
 

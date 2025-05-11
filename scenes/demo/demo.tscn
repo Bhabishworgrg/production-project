@@ -50,6 +50,7 @@ position = Vector2(960, 1095)
 position = Vector2(1970, 540)
 
 [node name="PauseMenu" type="CanvasLayer" parent="."]
+process_mode = 3
 visible = false
 script = ExtResource("6_lpkip")
 
@@ -107,6 +108,7 @@ ok_button_text = "Yes"
 dialog_text = "Are you sure you want to exit?"
 cancel_button_text = "No"
 
+[connection signal="pressed" from="PauseMenu/UnpauseButton" to="PauseMenu" method="_on_unpause_button_pressed"]
 [connection signal="pressed" from="PauseMenu/GoBackButton" to="PauseMenu" method="_on_go_back_button_pressed"]
 [connection signal="pressed" from="PauseMenu/ExitButton" to="PauseMenu" method="_on_exit_button_pressed"]
 [connection signal="confirmed" from="PauseMenu/ConfirmationDialog" to="PauseMenu" method="_on_confirmation_dialog_confirmed"]

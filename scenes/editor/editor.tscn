@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://cs77rcpj453gv"]
+[gd_scene load_steps=21 format=3 uid="uid://cs77rcpj453gv"]
 
 [ext_resource type="PackedScene" uid="uid://b5pf05mkglflu" path="res://scenes/sprite_integration/collision_shape_generator.tscn" id="1_gn8k4"]
 [ext_resource type="Script" path="res://scripts/editor/editor.gd" id="1_j3pyo"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://5x5d0yfqs5xu" path="res://assets/config_button.png" id="3_gii3u"]
 [ext_resource type="Texture2D" uid="uid://c8n1762yhs611" path="res://assets/config_button_hovered.png" id="4_6i0qb"]
 [ext_resource type="Texture2D" uid="uid://cj63em73a8eu1" path="res://assets/back_button.png" id="4_mle5y"]
+[ext_resource type="Script" path="res://scripts/ui/back_button.gd" id="4_va8y7"]
 [ext_resource type="Texture2D" uid="uid://b8r66nirbfcxa" path="res://assets/back_button_hovered.png" id="5_biyjb"]
 [ext_resource type="Texture2D" uid="uid://tmmaoopf84xe" path="res://assets/play_button.png" id="6_4carm"]
 [ext_resource type="Texture2D" uid="uid://dgp844sit8j1l" path="res://assets/save_button.png" id="6_vbsrd"]
@@ -43,6 +44,7 @@ offset_bottom = 70.0
 texture_normal = ExtResource("4_mle5y")
 texture_hover = ExtResource("5_biyjb")
 texture_focused = ExtResource("5_biyjb")
+script = ExtResource("4_va8y7")
 
 [node name="FileName" type="Label" parent="Toolbar"]
 offset_left = 888.0
@@ -135,6 +137,7 @@ _player = NodePath("../Viewport/Player")
 _area_completed = NodePath("../Viewport/AreaCompleted")
 _file_name_label = NodePath("../Toolbar/FileName")
 
+[connection signal="pressed" from="Toolbar/BackButton" to="Toolbar/BackButton" method="_on_pressed"]
 [connection signal="pressed" from="Toolbar/ConfigButton" to="." method="_on_config_button_pressed"]
 [connection signal="pressed" from="Toolbar/SaveButton" to="." method="_on_save_button_pressed"]
 [connection signal="pressed" from="Toolbar/SaveAsButton" to="." method="_on_save_as_button_pressed"]

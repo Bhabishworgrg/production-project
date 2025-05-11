@@ -19,6 +19,9 @@ public partial class GenerateButton : Button
 	private void OnPressed()
 	{
 		RunPythonScript();
+		Node globalState = GetNode("/root/GlobalState");
+		globalState.Call("set_previous_scene", globalState.Call("get_current_scene"));
+		globalState.Call("set_current_scene", _EditorScene);
 		GetTree().CallDeferred(SceneTree.MethodName.ChangeSceneToFile, _EditorScene);
 	}
 

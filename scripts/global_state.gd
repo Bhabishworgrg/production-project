@@ -8,6 +8,24 @@ var _data: Dictionary = {
 	"background": {},
 	"music": {},
 }
+var _current_scene: String
+var _previous_scene: String
+
+
+func get_current_scene() -> String:
+	return _current_scene
+
+
+func set_current_scene(scene: String) -> void:
+	_current_scene = scene
+
+
+func get_previous_scene() -> String:
+	return _previous_scene
+
+
+func set_previous_scene(scene: String) -> void:
+	_previous_scene = scene
 
 
 func get_file_name() -> String:

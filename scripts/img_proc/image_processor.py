@@ -30,6 +30,7 @@ class ImageProcessor:
 
 
     def _remove_background(self) -> np.ndarray:
+
         if self.algorithm == 'color_threshold':
             image_rgba = cv.cvtColor(self.image, cv.COLOR_BGR2RGBA)
         

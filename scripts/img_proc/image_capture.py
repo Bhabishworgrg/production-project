@@ -60,7 +60,7 @@ class ImageCapture:
     def save_image(self) -> None:
         if not path.exists(self.output_dir):
             makedirs(self.output_dir)
-
+        self.frame = cv.resize(self.frame, (1920, 1080))
         output_path = f'{self.output_dir}/{self.output_name}.png'
         if not cv.imwrite(output_path, self.frame):
             raise ValueError(f'Failed to save image to {output_path}')

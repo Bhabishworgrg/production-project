@@ -7,11 +7,11 @@
 [ext_resource type="PackedScene" uid="uid://d26mvdsx2tn41" path="res://scenes/states/state_jump.tscn" id="4_djwgg"]
 [ext_resource type="PackedScene" uid="uid://dnut3y3ikm3rw" path="res://scenes/states/state_land.tscn" id="5_froc1"]
 [ext_resource type="PackedScene" uid="uid://dc8e68547kn21" path="res://scenes/states/state_walk.tscn" id="6_aek8d"]
-[ext_resource type="Texture2D" uid="uid://benh0ow1pb0ff" path="res://assets/icon.svg" id="8_5tpva"]
+[ext_resource type="Texture2D" uid="uid://574sv061yck5" path="res://assets/demo_player.png" id="8_hke5m"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_51l8j"]
 radius = 42.0
-height = 126.0
+height = 114.0
 
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_ekvcu")
@@ -30,8 +30,9 @@ _state = NodePath("StateIdle")
 [node name="StateLand" parent="StateMachine" instance=ExtResource("5_froc1")]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.65625, 0.984375)
-texture = ExtResource("8_5tpva")
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("8_hke5m")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 6)
 shape = SubResource("CapsuleShape2D_51l8j")

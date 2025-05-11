@@ -20,6 +20,8 @@ if __name__ == '__main__':
 
     img_proc_dir = os.path.join('scripts', 'img_proc')
     os.makedirs(img_proc_dir, exist_ok=True)
+    os.makedirs('assets', exist_ok=True)
+    os.makedirs('save', exist_ok=True)
 
     img_proc_files = os.listdir(os.path.join('..', img_proc_dir))
     for file in img_proc_files:

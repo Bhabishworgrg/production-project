@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://d3cnn26ga5mls"]
+[gd_scene load_steps=7 format=3 uid="uid://d3cnn26ga5mls"]
 
 [ext_resource type="PackedScene" uid="uid://baao4rnkgcs1i" path="res://scenes/game/player.tscn" id="1_a1tfp"]
 [ext_resource type="Script" path="res://scripts/game/game.gd" id="1_slxob"]
 [ext_resource type="PackedScene" uid="uid://c457unem78en7" path="res://scenes/game/platform.tscn" id="2_v7wes"]
 [ext_resource type="PackedScene" uid="uid://c2xofq24m75xp" path="res://scenes/trigger_areas/death_zone.tscn" id="3_nrv3c"]
 [ext_resource type="PackedScene" uid="uid://dg0p1ryorij3b" path="res://scenes/trigger_areas/area_completed.tscn" id="4_q063s"]
+[ext_resource type="Script" path="res://scripts/ui/pause_menu.gd" id="6_yifm1"]
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_slxob")
@@ -25,3 +26,68 @@ position = Vector2(1920, 540)
 
 [node name="DeathZone" parent="." instance=ExtResource("3_nrv3c")]
 position = Vector2(963, 1106)
+
+[node name="PauseMenu" type="CanvasLayer" parent="."]
+script = ExtResource("6_yifm1")
+
+[node name="TextureRect" type="ColorRect" parent="PauseMenu"]
+offset_right = 1920.0
+offset_bottom = 1080.0
+color = Color(0, 0, 0, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="PauseMenu"]
+offset_left = 883.0
+offset_top = 225.0
+offset_right = 1052.0
+offset_bottom = 292.0
+theme_override_font_sizes/font_size = 48
+text = "Paused"
+metadata/_edit_use_anchors_ = true
+
+[node name="UnpauseButton" type="Button" parent="PauseMenu"]
+offset_left = 819.0
+offset_top = 391.0
+offset_right = 1096.0
+offset_bottom = 451.0
+focus_neighbor_top = NodePath("../../DemoButton")
+focus_previous = NodePath("../../DemoButton")
+theme_override_font_sizes/font_size = 27
+text = "Unpause"
+metadata/_edit_use_anchors_ = true
+
+[node name="GoBackButton" type="Button" parent="PauseMenu"]
+offset_left = 816.0
+offset_top = 497.0
+offset_right = 1093.0
+offset_bottom = 557.0
+focus_neighbor_top = NodePath("../../DemoButton")
+focus_previous = NodePath("../../DemoButton")
+theme_override_font_sizes/font_size = 27
+text = "Go Back"
+metadata/_edit_use_anchors_ = true
+
+[node name="ExitButton" type="Button" parent="PauseMenu"]
+offset_left = 818.0
+offset_top = 605.0
+offset_right = 1095.0
+offset_bottom = 665.0
+focus_neighbor_top = NodePath("../../DemoButton")
+focus_previous = NodePath("../../DemoButton")
+theme_override_font_sizes/font_size = 27
+text = "Exit"
+metadata/_edit_use_anchors_ = true
+
+[node name="ConfirmationDialog" type="ConfirmationDialog" parent="PauseMenu"]
+auto_translate_mode = 1
+title = "Confirm Exit"
+initial_position = 1
+size = Vector2i(250, 100)
+ok_button_text = "Yes"
+dialog_text = "Are you sure you want to exit?"
+cancel_button_text = "No"
+
+[connection signal="pressed" from="PauseMenu/UnpauseButton" to="PauseMenu" method="_on_unpause_button_pressed"]
+[connection signal="pressed" from="PauseMenu/GoBackButton" to="PauseMenu" method="_on_go_back_button_pressed"]
+[connection signal="pressed" from="PauseMenu/ExitButton" to="PauseMenu" method="_on_exit_button_pressed"]
+[connection signal="confirmed" from="PauseMenu/ConfirmationDialog" to="PauseMenu" method="_on_confirmation_dialog_confirmed"]

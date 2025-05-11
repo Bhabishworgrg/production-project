@@ -1,10 +1,41 @@
-[gd_scene load_steps=2 format=3 uid="uid://b6hsg5dhwh6nx"]
+[gd_scene load_steps=3 format=3 uid="uid://b6hsg5dhwh6nx"]
 
 [ext_resource type="Texture2D" uid="uid://bspdbe5oru8s3" path="res://assets/level_complete.png" id="1_6ue5k"]
+[ext_resource type="Script" path="res://scripts/ui/game_stop_screen.gd" id="1_krlpw"]
 
 [node name="CompleteUI" type="CanvasLayer"]
+script = ExtResource("1_krlpw")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 offset_right = 40.0
 offset_bottom = 40.0
 texture = ExtResource("1_6ue5k")
+
+[node name="ReplayButton" type="Button" parent="."]
+offset_left = 812.0
+offset_top = 795.0
+offset_right = 1089.0
+offset_bottom = 855.0
+focus_neighbor_top = NodePath("../../DemoButton")
+focus_previous = NodePath("../../DemoButton")
+theme_override_font_sizes/font_size = 27
+text = "Replay"
+
+[node name="ExitButton" type="Button" parent="."]
+offset_left = 814.0
+offset_top = 903.0
+offset_right = 1091.0
+offset_bottom = 963.0
+focus_neighbor_top = NodePath("../../DemoButton")
+focus_previous = NodePath("../../DemoButton")
+theme_override_font_sizes/font_size = 27
+text = "Exit"
+
+[node name="ConfirmationDialog" type="ConfirmationDialog" parent="."]
+auto_translate_mode = 1
+title = "Confirm Exit"
+initial_position = 1
+size = Vector2i(250, 100)
+ok_button_text = "Yes"
+dialog_text = "Are you sure you want to exit?"
+cancel_button_text = "No"

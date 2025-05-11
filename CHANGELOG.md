@@ -278,3 +278,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Removed
 - Duplicate player.gd script.
+
+# [v0.5.0] - 2025-05-11
+
+### Fixed
+- Music not playing on the game scene.
+- save and assets directory not being in final build.
